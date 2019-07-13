@@ -18,4 +18,6 @@ describe('Turn', () => {
   it('should be an instance of Turn', () => {
     expect(turn).to.be.an.instanceof(Turn);
   })
+
+  
 });
