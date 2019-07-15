@@ -10,6 +10,8 @@ let player;
 beforeEach(() => {
   player = new Player('Moisey', 1);
 });
+// global.localStorage = {};
+// chai.spy.on(localStorage, ['setItem', 'getItem'], () => {});
 
 describe('Player', () => {
 
