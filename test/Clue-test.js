@@ -2,6 +2,9 @@ import chai from 'chai';
 const expect = chai.expect;
 import Clue from '../src/Clue';
 import Data from '../src/data/data.js';
+import spies from 'chai-spies';
+import DOMupdates from '../src/DOMupdates.js';
+chai.use(spies);
 
 describe('Clue', function() {
   let clue;
