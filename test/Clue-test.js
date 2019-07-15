@@ -7,7 +7,7 @@ describe('Clue', function() {
   let clue;
 
   beforeEach(function() {
-    clue = new Clue(data);
+    clue = new Clue(Data);
   });
 
   it('should be an instance of Clue', () => {
