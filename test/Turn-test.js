@@ -1,6 +1,8 @@
 import chai from 'chai';
 const expect = chai.expect;
-
+import spies from 'chai-spies';
+import DOMupdates from '../src/DOMupdates.js';
+chai.use(spies);
 
 import Turn from '../src/Turn';
 
