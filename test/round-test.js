@@ -4,6 +4,8 @@ import Round from '../src/round';
 import Data from '../src/data/data';
 import Turn from '../src/Turn'
 import Clue from '../src/Clue'
+import spies from 'chai-spies';
+chai.use(spies);
 
 describe('Round', function() {
   let players;
