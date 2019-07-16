@@ -3,9 +3,14 @@ class Clue {
     this.data = data;
   }
 
+  shuffleCategories() {
+    let categories = Object.entries(this.data.categories)
+    let random = categories.sort(() => Math.random() - 0.5)
+    return random;
+  }
+
   pickCategories() {
-    let categories = this.data.categories;
-    return Object.entries(categories).splice(0, 4);
+    return this.shuffleCategories().splice(0, 4);
   }
 
   findMatchingQuestions() {
@@ -19,7 +24,7 @@ class Clue {
         allQuestions.push(clues.filter(clue => clue.categoryId === id).find(clue => clue.pointValue === point));
       })
     })
-    console.log(allQuestions)
+
     return allQuestions;
   } 
 }
