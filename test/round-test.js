@@ -15,18 +15,18 @@ describe('Round', function() {
 
   beforeEach(function() {
     players = [
-      {id: 1, name: 'Spam', score: 0},
-      {id: 2, name: 'Jessie', score: 0},
-      {id: 3, name: 'Yana', score: 0}
+      {id: 1, name: 'Spam', score: 5},
+      {id: 2, name: 'Jessie', score: 2},
+      {id: 3, name: 'Yana', score: 20}
     ];
     round = new Round(players)
     clue = new Clue(Data)
-    // clue = {
-    //   question: "Cable channel where you'd find \"Mouseterpiece Theatre",
-    //   pointValue: 200,
-    //   answer: "the Disney Channel",
-    //   categoryId: 10
-    // };
+    clue = {
+      question: "Cable channel where you'd find \"Mouseterpiece Theatre",
+      pointValue: 200,
+      answer: "the Disney Channel",
+      categoryId: 10
+    };
 
   });
 
@@ -53,11 +53,14 @@ describe('Round', function() {
     expect(round.players).to.have.lengthOf(3)
   })
 
-  // it.skip('should have three players', () => {
+  it('should return the highest score', () => {
     
-  //   expect(round.players).to.have.lengthOf(3)
+    expect(round.returnRoundWinnerScore(players)).to.eql({ id: 3, name: 'Yana', score: 20 })
+  })
+
+  // it('should return the number of current clues', () => {
+    
+  //   expect(round.increaseCurrentRound(clue)).to.have.lengthOf(1)
   // })
-
-
 
 });
