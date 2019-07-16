@@ -18,14 +18,14 @@ describe('Clue', function() {
   });
 
   it('should receive data file', () => {
-    expect(clue.questions).to.be.eql(data);
+    expect(clue.data).to.be.eql(Data);
   });
 
   it('should pick new categories depending on the round', () => {
-    expect(clue.pickCategories().length).to.be.eql(4);
+    expect(clue.pickCategories()).to.have.lengthOf(4);
   });
 
   it('should find the cards based on chosen categories', () => {
-    expect(clue.findMatchingQuestions()).to.be.eql();
+    expect(clue.findMatchingQuestions()).to.have.lengthOf(16);
   });
 });
