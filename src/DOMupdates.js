@@ -5,7 +5,7 @@ let DOMupdates = {
   //show current round in top of the screen
 
   //display the categories
-
+  
   //display clues
 
   //display final round(one category with one card only)
