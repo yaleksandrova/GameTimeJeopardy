@@ -16,6 +16,9 @@ console.log('This is the JavaScript entry file - your code begins here.');
 
 $(document).ready(function () {
 
-  // domUpdates.displayCluesIds()
-  domUpdates.displayCluesQuestions();
+  domUpdates.displayCluesIds()
+
+  $('#js-row-0').click(function() {
+    domUpdates.displayCluesQuestions();
+  })
 });

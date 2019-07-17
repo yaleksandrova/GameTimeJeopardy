@@ -16,13 +16,13 @@ let domUpdates = {
 
   //display the categories
 
-  // displayCluesIds() {
-  //   let clue = new Clue(Data);
-  //   let clues = clue.findMatchingQuestions();
-  //   clues.forEach((clue, index) => {
-  //     $(`#js-row-${index}`).html(clue.pointValue);
-  //   })
-  // }
+  displayCluesIds() {
+    let clue = new Clue(Data);
+    let clues = clue.findMatchingQuestions();
+    clues.forEach((clue, index) => {
+      $(`#js-row-${index}`).html(clue.pointValue);
+    })
+  },
 
   displayCluesQuestions() {
     let clue = new Clue(Data);
@@ -32,28 +32,24 @@ let domUpdates = {
     })
   }
 
-  displayCategories() {
-    return Object.keys(data.categories);
-  },
+  // displayCategories() {
+  //   return Object.keys(data.categories);
+  // },
 
-  
+
   //display clues
 
   //display final round(one category with one card only)
 
-  inputWager() {
+  // updateScore(data){
+  //   if(this.evaluateGuess(data) === true){
+  //     this.player.score += this.value;
+  //     return this.player.score;
+  //   }else{
+  //     return this.player.score;
+  //   }
 
-  },
-
-  updateScore(data){
-    if(this.evaluateGuess(data) === true){
-      this.player.score += this.value;
-      return this.player.score;
-    }else{
-      return this.player.score;
-    }
-
-  },
+  // }
 
   //display game winner
 
