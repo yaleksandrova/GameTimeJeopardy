@@ -8,6 +8,7 @@ import Player from "./Player";
 
 let domUpdates = {
 
+
   displayPlayersName(data) {
     const players = data.players.map(person => {
       return person.name;
@@ -29,6 +30,7 @@ let domUpdates = {
     let clues = new Clues(Data);
     let findClues = clues.findMatchingQuestions();
     findClues.forEach((clue, index) => {
+      console.log('displayId', clue.categoryId)
       $(`#js-row-${index}`).html(clue.pointValue);
     })
   },
@@ -37,13 +39,18 @@ let domUpdates = {
     let clues = new Clues(Data);
     let findClues = clues.findMatchingQuestions();
     findClues.forEach((clue, index) => {
+      console.log('displayQ', clue.categoryId)
       $(`#js-row-${index}`).html(clue.question);
     })
   },
 
   displayCategories() {
     let clues = new Clues(Data);
-    let findCat = clues.findMatchingQuestions();
+    let findCat = clues.pickCategories();
+    findCat.forEach((category, index) => {
+      console.log('displayCat', category[1])
+      $(`#js-category-${index}`).html(category[0]);
+    })
   },
 
   //check answer() have an event listener for submit answer button 

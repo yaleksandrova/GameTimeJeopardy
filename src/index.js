@@ -9,6 +9,7 @@ import $ from 'jquery';
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
 
+
 //event listener for clue button, for name submit button which will call DOM updates methods
 //e.target
 //check()
@@ -16,7 +17,7 @@ import './css/base.scss';
 $(document).ready(function () {
 
   domUpdates.displayCluesIds()
-
+  domUpdates.displayCategories()
 
   $('#js-row-0').click(function() {
     domUpdates.displayCluesQuestions();
