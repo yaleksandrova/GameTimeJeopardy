@@ -1,10 +1,16 @@
 import $ from 'jquery';
 import Clue from './Clue';
 import Data from '../src/data/data';
+import Player from "./Player";
 
 let domUpdates = {
 
-  //player's names display after inputted
+  displayPlayersName(data) {
+    const players = data.players.map(person => {
+      return person.name;
+    })
+    return players;
+  },
 
   //show current round in top of the screen
 
@@ -25,14 +31,29 @@ let domUpdates = {
       $(`#js-row-${index}`).html(clue.question);
     })
   }
+
+  displayCategories() {
+    return Object.keys(data.categories);
+  },
+
   
   //display clues
 
   //display final round(one category with one card only)
 
-  //input wager for daily doubles
+  inputWager() {
 
-  //update an individual player's score
+  },
+
+  updateScore(data){
+    if(this.evaluateGuess(data) === true){
+      this.player.score += this.value;
+      return this.player.score;
+    }else{
+      return this.player.score;
+    }
+
+  },
 
   //display game winner
 
