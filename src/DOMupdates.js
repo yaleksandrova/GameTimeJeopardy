@@ -30,26 +30,25 @@ let domUpdates = {
     clues.forEach((clue, index) => {
       $(`#js-row-${index}`).html(clue.question);
     })
-  }
+  },
 
-  // displayCategories() {
-  //   return Object.keys(data.categories);
-  // },
+  displayCategories() {
+  },
 
 
   //display clues
 
   //display final round(one category with one card only)
 
-  // updateScore(data){
-  //   if(this.evaluateGuess(data) === true){
-  //     this.player.score += this.value;
-  //     return this.player.score;
-  //   }else{
-  //     return this.player.score;
-  //   }
+  updateScore(data) {
+    if (this.evaluateGuess(data) === true) {
+      this.player.score += this.value;
+      return this.player.score;
+    } else {
+      return this.player.score;
+    }
 
-  // }
+  },
 
   //display game winner
 
