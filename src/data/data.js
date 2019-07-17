@@ -7,11 +7,6 @@ const data = {
       clues: 1
     },
   },
-  // players: [
-  //   {id: 1, name: 'Spam', score: 5},
-  //   {id: 2, name: 'Jessie', score: 2},
-  //   {id: 3, name: 'Yana', score: 20}
-  // ] ,
   categories: {
     'unitedStatesHistory': 1,
     'lifeSciences': 2,

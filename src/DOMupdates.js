@@ -1,5 +1,6 @@
 import Player from "./Player";
 // import data from '../src/data/data';
+//import 
 
 let DOMupdates = {
 
@@ -10,6 +11,12 @@ let DOMupdates = {
     return players;
   },
 
+//user interaction 
+//method that checksDD() {
+//if click is DD  
+//}
+//event listener goes in index.js
+
   //show current round in top of the screen
 
   displayCategories() {
@@ -17,6 +24,8 @@ let DOMupdates = {
   },
   
   //display clues
+
+  //check answer() have an event listener for submit answer button 
 
   //display final round(one category with one card only)
 
@@ -31,7 +40,7 @@ let DOMupdates = {
     }else{
       return this.player.score;
     }
-
+//update score on the dom and include spies 
   },
 
   //display game winner

@@ -1,3 +1,5 @@
+//fetch API => clue class => round 
+
 class Clue {
   constructor(data) {
     this.data = data;
