@@ -3,7 +3,7 @@ const expect = chai.expect;
 import Round from '../src/round';
 import Data from '../src/data/data';
 import Turn from '../src/Turn';
-import Clue from '../src/Clue';
+import Clues from '../src/Clues';
 import spies from 'chai-spies';
 import DOMupdates from '../src/DOMupdates.js';
 chai.use(spies);
@@ -11,7 +11,7 @@ chai.use(spies);
 describe('Round', function() {
   let players;
   let round;
-  let clue;
+  let clues;
 
   beforeEach(function() {
     players = [
@@ -20,13 +20,7 @@ describe('Round', function() {
       {id: 3, name: 'Yana', score: 20}
     ];
     round = new Round(players)
-    clue = new Clue(Data)
-    clue = {
-      question: "Cable channel where you'd find \"Mouseterpiece Theatre",
-      pointValue: 200,
-      answer: "the Disney Channel",
-      categoryId: 10
-    };
+    clues = new Clues(Data)
 
   });
 
@@ -57,10 +51,5 @@ describe('Round', function() {
     
     expect(round.returnGameWinner(players)).to.eql('Yana')
   })
-
-  // it('should display the name of the current player', () => {
-    
-  //   expect(round.displayCurrentPlayer(players)).to.eql({id: 1, name: 'Spam', score: 5})
-  // })
 
 });

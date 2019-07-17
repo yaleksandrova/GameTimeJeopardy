@@ -1,8 +1,13 @@
+import $ from 'jquery';
+import Clues from './Clues';
+import Data from '../src/data/data';
 import Player from "./Player";
+
 // import data from '../src/data/data';
 //import 
 
-let DOMupdates = {
+let domUpdates = {
+
 
   displayPlayersName(data) {
     const players = data.players.map(person => {
@@ -11,36 +16,59 @@ let DOMupdates = {
     return players;
   },
 
-//user interaction 
-//method that checksDD() {
-//if click is DD  
-//}
-//event listener goes in index.js
+  //user interaction 
+  //method that checksDD() {
+  //if click is DD  
+  //}
+  //event listener goes in index.js
 
   //show current round in top of the screen
 
-  displayCategories() {
-    return Object.keys(data.categories);
+  //display the categories
+
+  displayCluesIds() {
+    let clues = new Clues(Data);
+    let findClues = clues.findMatchingQuestions();
+    findClues.forEach((clue, index) => {
+      console.log('displayId', clue.categoryId)
+      $(`#js-row-${index}`).html(clue.pointValue);
+    })
   },
-  
-  //display clues
+
+  displayCluesQuestions() {
+    let clues = new Clues(Data);
+    let findClues = clues.findMatchingQuestions();
+    findClues.forEach((clue, index) => {
+      console.log('displayQ', clue.categoryId)
+      $(`#js-row-${index}`).html(clue.question);
+    })
+  },
+
+  displayCategories() {
+    let clues = new Clues(Data);
+    let findCat = clues.pickCategories();
+    findCat.forEach((category, index) => {
+      console.log('displayCat', category[1])
+      $(`#js-category-${index}`).html(category[0]);
+    })
+  },
 
   //check answer() have an event listener for submit answer button 
 
   //display final round(one category with one card only)
 
-  inputWager() {
+  //display clues
 
-  },
+  //display final round(one category with one card only)
 
-  updateScore(data){
-    if(this.evaluateGuess(data) === true){
+  updateScore(data) {
+    if (this.evaluateGuess(data) === true) {
       this.player.score += this.value;
       return this.player.score;
-    }else{
+    } else {
       return this.player.score;
     }
-//update score on the dom and include spies 
+    //update score on the dom and include spies 
   },
 
   //display game winner
@@ -49,3 +77,5 @@ let DOMupdates = {
 
 
 }
+
+export default domUpdates;
