@@ -1,9 +1,9 @@
 class Turn {
-  constructor (usersGuess, answer, player, data) {
-    this.usersGuess = usersGuess;
-    this.answer = answer;
+  constructor (category, value, guess, player) {
+    this.category = category;
+    this.value = value;
+    this.guess = guess;
     this.player = player;
-    this.data = data;
   }
 // select a categrory and a clue in one function
 //checking if the clue is daily double 
@@ -14,37 +14,61 @@ class Turn {
 //if there is no wager, still check the answer and updare score
 //round class determines what comes to the dashboard
 
-  selectCategoryAndClue(category, clue) {
-    //method from Clue class that displayes categories and clues
-  if( this.checkIfCLueIsDailyDouble()){
-    this.inputWager();
-    this.inputAndEvaluateAnswer();
-  } else {
-    this.inputAndEvaluateAnswer();
-  }
-    updateScore();
-  }
+
+evaluateGuess(data) {
+    const array = [];
+    data.clues.forEach(item => {
+
+    if(item.categoryId === this.category){
+    array.push(item);
+      }
+    });
+
+    const result = [];
+    array.forEach(el => {
+    if(el.pointValue === this.value){
+        result.push(el.answer);
+    }
+  });
+
+    if(result.includes(this.guess)){
+      return true
+    }else{
+      return false
+    }
+  };
+  
+  giveFeedback(data) {
+    if (this.evaluateGuess(data) === true) {
+      return 'correct!';
+    } else {
+      return 'incorrect!';
+    }
+  };  
+
+  updateScore(data){
+    if(this.evaluateGuess(data) === true){
+      this.player.score += this.value;
+      return this.player.score;
+    }else{
+      return this.player.score;
+    }
+    
+  };
 
   checkIfCLueIsDailyDouble() {
-  
-  }
+  //calls on DOM checkDD(){
+  //domUpdates()
+  //wager()
+  //}
+  };
 
   inputWager(points) {
 // check if the wager is valid
 //if (points > 0)
 //come from the round class or logic needs set up here
-  }
-
-  inputAndEvaluateAnswer() {
-    
-  }
-
-  updateScore() {
-
-  }
+  };
 
 }
-
-
 
 export default Turn;
