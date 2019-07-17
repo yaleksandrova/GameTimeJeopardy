@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import Clue from './Clue';
+import Clues from './Clues';
 import Data from '../src/data/data';
 import Player from "./Player";
 
@@ -26,17 +26,17 @@ let domUpdates = {
   //display the categories
 
   displayCluesIds() {
-    let clue = new Clue(Data);
-    let clues = clue.findMatchingQuestions();
-    clues.forEach((clue, index) => {
+    let clues = new Clues(Data);
+    let findClues = clues.findMatchingQuestions();
+    findClues.forEach((clue, index) => {
       $(`#js-row-${index}`).html(clue.pointValue);
     })
   },
 
   displayCluesQuestions() {
-    let clue = new Clue(Data);
-    let clues = clue.findMatchingQuestions();
-    clues.forEach((clue, index) => {
+    let clues = new Clues(Data);
+    let findClues = clues.findMatchingQuestions();
+    findClues.forEach((clue, index) => {
       $(`#js-row-${index}`).html(clue.question);
     })
   },

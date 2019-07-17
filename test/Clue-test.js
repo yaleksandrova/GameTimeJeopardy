@@ -1,31 +1,31 @@
 import chai from 'chai';
 const expect = chai.expect;
-import Clue from '../src/Clue';
+import Clues from '../src/Clues';
 import Data from '../src/data/data.js';
 import spies from 'chai-spies';
 import DOMupdates from '../src/DOMupdates.js';
 chai.use(spies);
 
-describe('Clue', function() {
-  let clue;
+describe('Clues', function() {
+  let clues;
 
   beforeEach(function() {
-    clue = new Clue(Data);
+    clues = new Clues(Data);
   });
 
   it('should be an instance of Clue', () => {
-    expect(clue).to.be.an.instanceof(Clue);
+    expect(clues).to.be.an.instanceof(Clues);
   });
 
   it.skip('should receive data file', () => {
-    expect(clue.data).to.be.eql(Data);
+    expect(clues.data).to.be.eql(Data);
   });
 
   it.skip('should pick new categories depending on the round', () => {
-    expect(clue.pickCategories()).to.have.lengthOf(4);
+    expect(clues.pickCategories()).to.have.lengthOf(4);
   });
 
   it.skip('should find the cards based on chosen categories', () => {
-    expect(clue.findMatchingQuestions()).to.have.lengthOf(16);
+    expect(clues.findMatchingQuestions()).to.have.lengthOf(16);
   });
 });

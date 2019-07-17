@@ -1,6 +1,6 @@
 //fetch API => clue class => round 
 
-class Clue {
+class Clues {
   constructor(data) {
     this.data = data;
   }
@@ -31,4 +31,4 @@ class Clue {
   } 
 }
 
-export default Clue;
+export default Clues;
