@@ -17,15 +17,15 @@ describe('Clues', function() {
     expect(clues).to.be.an.instanceof(Clues);
   });
 
-  it.skip('should receive data file', () => {
+  it('should receive data file', () => {
     expect(clues.data).to.be.eql(Data);
   });
 
-  it.skip('should pick new categories depending on the round', () => {
+  it('should pick new categories depending on the round', () => {
     expect(clues.pickCategories()).to.have.lengthOf(4);
   });
 
-  it.skip('should find the cards based on chosen categories', () => {
+  it('should find the cards based on chosen categories', () => {
     expect(clues.findMatchingQuestions()).to.have.lengthOf(16);
   });
 });

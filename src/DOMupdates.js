@@ -42,6 +42,8 @@ let domUpdates = {
   },
 
   displayCategories() {
+    let clues = new Clues(Data);
+    let findCat = clues.findMatchingQuestions();
   },
 
   //check answer() have an event listener for submit answer button 

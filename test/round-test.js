@@ -21,12 +21,6 @@ describe('Round', function() {
     ];
     round = new Round(players)
     clues = new Clues(Data)
-    clue = {
-      question: "Cable channel where you'd find \"Mouseterpiece Theatre",
-      pointValue: 200,
-      answer: "the Disney Channel",
-      categoryId: 10
-    };
 
   });
 
