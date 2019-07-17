@@ -3,7 +3,7 @@ class Round {
     this.numberOfRounds = numberOfRounds;
     this.data = data;
     this.players = players;
-    // this.currentTurn = 1;
+    this.currentTurn = 1;
     this.currentRound = 1;
 
   }
@@ -39,19 +39,16 @@ returnDailyDouble() {
   return Array.from({length: this.numberOfRounds}, () => Math.floor(Math.random() * 16))
 }
 
-returnRoundWinnerScore(players) {
-  return players.sort((a, b) => b.score - a.score)[0];
+returnGameWinner(players) {
+  return players.sort((a, b) => b.score - a.score)[0].name;
 }
 
 
-increaseCurrentRound(clue) {
- if(clue.length > 16) {
-  return this.currentRound++
- }
+// increaseCurrentRound(clue) { //jquery convert
+//  if(clue.length > 16) {
+//   return this.currentRound++
+// }
 
- // belongs in the DOM
-
-}
 
 }
 
