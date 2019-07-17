@@ -3,8 +3,8 @@ class Player {
     this.name = name;
     this.id = id;
     this.score = 0;
-
   }
+  
 }
 
 
