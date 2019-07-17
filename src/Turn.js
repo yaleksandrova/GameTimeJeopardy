@@ -56,9 +56,11 @@ evaluateGuess(data) {
     
   };
 
-
   checkIfCLueIsDailyDouble() {
-  
+  //calls on DOM checkDD(){
+  //domUpdates()
+  //wager()
+  //}
   };
 
   inputWager(points) {

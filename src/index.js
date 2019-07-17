@@ -12,5 +12,7 @@ import './images/turing-logo.png'
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
-
+//event listener for clue button, for name submit button which will call DOM updates methods
+//e.target
+//check()
 
