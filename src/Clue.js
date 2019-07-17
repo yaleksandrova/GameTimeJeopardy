@@ -25,7 +25,7 @@ class Clue {
       })
     })
 
-    return allQuestions;
+    return allQuestions.sort((a, b) => a.pointValue - b.pointValue);
   } 
 }
 
