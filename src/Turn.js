@@ -57,11 +57,30 @@ evaluateGuess(data) {
   };
 
   checkIfCLueIsDailyDouble() {
+    const clue = data.clues.filter(item => {
+      return item.pointValue === this.value &&
+      item.categoryId === this.category
+    })
+      return clue;
+
+      if(clue.includes(round.returnDailyDouble()){
+        
+        return true
+      }else{
+        return false
+      }
+
+
+  }
+
+  
+
   //calls on DOM checkDD(){
   //domUpdates()
   //wager()
   //}
-  };
+  //add DD class
+  
 
   inputWager(points) {
 // check if the wager is valid
