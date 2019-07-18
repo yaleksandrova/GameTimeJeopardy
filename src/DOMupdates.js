@@ -26,29 +26,24 @@ let domUpdates = {
 
   //display the categories
 
-  displayCluesIds() {
-    let clues = new Clues(Data);
-    let findClues = clues.findMatchingQuestions();
+  displayCluesIds(clues) {
+    let findClues = clues.cards;
     findClues.forEach((clue, index) => {
-      console.log('displayId', clue.categoryId)
       $(`#js-row-${index}`).html(clue.pointValue);
     })
   },
 
-  displayCluesQuestions() {
-    let clues = new Clues(Data);
-    let findClues = clues.findMatchingQuestions();
-    findClues.forEach((clue, index) => {
-      console.log('displayQ', clue.categoryId)
-      $(`#js-row-${index}`).html(clue.question);
-    })
-  },
+  // displayCluesQuestions(clues) {
+  //   let findClues = clues.findMatchingQuestions();
+  //   clues.forEach((clue, index) => {
+  //     console.log('displayQ', clue.categoryId)
+  //     $(`#js-row-${index}`).html(clue.question);
+  //   })
+  // },
 
-  displayCategories() {
-    let clues = new Clues(Data);
-    let findCat = clues.pickCategories();
+  displayCategories(clues) {
+    let findCat = clues.categories;
     findCat.forEach((category, index) => {
-      console.log('displayCat', category[1])
       $(`#js-category-${index}`).html(category[0]);
     })
   },

@@ -36,19 +36,19 @@ class Round {
 
 
 
-returnDailyDouble() {
-  return Array.from({length: this.numberOfRounds}, () => Math.floor(Math.random() * 16))
-}
+  returnDailyDouble() {
+    return Array.from({length: this.numberOfRounds}, () => Math.floor(Math.random() * 16))
+  }
 
-returnGameWinner(players) {
-  return players.sort((a, b) => b.score - a.score)[0].name;
-}
+  returnGameWinner(players) {
+    return players.sort((a, b) => b.score - a.score)[0].name;
+  }
 
 
-// increaseCurrentRound(clue) { //jquery convert
-//  if(clue.length > 16) {
-//   return this.currentRound++
-// }
+  // increaseCurrentRound(clue) { //jquery convert
+  //  if(clue.length > 16) {
+  //   return this.currentRound++
+  // }
 
 
 }
