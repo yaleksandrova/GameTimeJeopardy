@@ -1,9 +1,10 @@
 class Game {
-  constructor() {
-    // this.data = this.data;
+  constructor(data, players, clues) {
+    this.data = data;
     // this.categories = categories;
-    // // this.players = players;
-    // this.player = player
+    this.players = players
+    this.clues = clues
+    
   }
 
   gameStart() {

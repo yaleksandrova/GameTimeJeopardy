@@ -4,7 +4,7 @@ import Round from '../src/round';
 import Game from '../src/game';
 import Data from '../src/data/data';
 import Turn from '../src/Turn';
-import Clue from '../src/Clue';
+import Clues from '../src/Clues';
 import spies from 'chai-spies';
 import DOMupdates from '../src/DOMupdates.js';
 chai.use(spies);
@@ -13,7 +13,7 @@ describe('Game', function() {
 
   let players;
   let round;
-  let clue;
+  let clues;
   let game;
 
     beforeEach(function() {
@@ -22,15 +22,10 @@ describe('Game', function() {
       {id: 2, name: 'Jessie', score: 2},
       {id: 3, name: 'Yana', score: 20}
     ];
-    game = new Game(Data)
+    game = new Game(Data, players, clues)
     round = new Round(players)
-    clue = new Clue(Data)
-    clue = {
-      question: "Cable channel where you'd find \"Mouseterpiece Theatre",
-      pointValue: 200,
-      answer: "the Disney Channel",
-      categoryId: 10
-    };
+    clues = new Clues(Data)
+    
 
   });
 
