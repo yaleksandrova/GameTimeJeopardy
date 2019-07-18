@@ -10,6 +10,10 @@ import Clues from '../src/Clues'
 
 import Player from '../src/Player'
 
+import Game from '../src/game';
+
+import Round from '../src/round'
+
 // import Data from '../src/data/data'
 // This is the JavaScript entry file - your code begins here
 // Do not delete or rename this file ********
@@ -40,11 +44,13 @@ $(document).ready(function () {
     e.preventDefault();
     let clues = new Clues(gameData)
     let players = [];
-    let player1 = new Player('Spam', 1)
-    let player2 = new Player('Yana', 2)
-    let player3 = new Player('Jessie',3)
+    let player1 = new Player($('#js-input-player-1').val(), 1)
+    let player2 = new Player($('#js-input-player-2').val(), 2)
+    let player3 = new Player($('#js-input-player-3').val(), 3)
     players.push(player1, player2, player3)
-    console.log('who', players);
+    let game = new Game(clues, players)
+    let round = new Round(players, undefined, clues.pickCategories(), clues.findMatchingQuestions())
+    console.log('sup',round)
   })
 
 

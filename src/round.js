@@ -1,10 +1,11 @@
 class Round {
-  constructor(players, numberOfRounds = 1, data) {
+  constructor(players, numberOfRounds = 1, categories, cards) {
     this.numberOfRounds = numberOfRounds;
-    this.data = data;
     this.players = players;
     this.currentTurn = 1;
     this.currentRound = 1;
+    this.categories = categories;
+    this.cards = cards;
 
   }
 
