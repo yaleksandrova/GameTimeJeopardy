@@ -32,8 +32,6 @@ import './css/base.scss';
 //check()
 
 
-// domUpdates.displayCluesIds()
-// domUpdates.displayCategories()
 
 // $('#js-row-0').click(function() {
 //   // domUpdates.displayCluesQuestions();
@@ -51,7 +49,8 @@ $('#js-names-button').click(function(e) {
   players.push(player1, player2, player3)
   let game = new Game(clues, players)
   let round = new Round(players, 1, clues.categories, clues.findMatchingQuestions())
-      
+  // domUpdates.displayCluesIds(clues)
+  domUpdates.displayCategories(clues)   
   console.log('sup', round)
 })
 
