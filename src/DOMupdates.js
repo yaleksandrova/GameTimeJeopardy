@@ -26,13 +26,12 @@ let domUpdates = {
 
   //display the categories
 
-  // displayCluesIds(clues) {
-  //   let findClues = clues.;
-  //   findClues.forEach((clue, index) => {
-  //     console.log('displayId', clue.categoryId)
-  //     $(`#js-row-${index}`).html(clue.pointValue);
-  //   })
-  // },
+  displayCluesIds(clues) {
+    let findClues = clues.cards;
+    findClues.forEach((clue, index) => {
+      $(`#js-row-${index}`).html(clue.pointValue);
+    })
+  },
 
   // displayCluesQuestions(clues) {
   //   let findClues = clues.findMatchingQuestions();

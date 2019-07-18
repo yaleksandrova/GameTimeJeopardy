@@ -3,8 +3,9 @@
 class Clues {
   constructor(data) {
     this.data = data;
-    this.randomCat
-    this.categories
+    this.randomCat;
+    this.categories;
+    this.cards;
   }
 
   shuffleCategories() {
@@ -28,7 +29,7 @@ class Clues {
       })
     })
 
-    return allQuestions.sort((a, b) => a.pointValue - b.pointValue);
+    this.cards = allQuestions.sort((a, b) => a.pointValue - b.pointValue);
   } 
 }
 
