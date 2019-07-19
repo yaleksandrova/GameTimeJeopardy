@@ -26,7 +26,6 @@ import $ from 'jquery';
 import './css/base.scss';
 
 
-
 //event listener for clue button, for name submit button which will call DOM updates methods
 //e.target
 //check()
@@ -53,6 +52,8 @@ $('#js-names-button').click(function(e) {
   domUpdates.displayCluesIds(clues)
   domUpdates.displayCategories(clues)   
   console.log('sup', round)
+  domUpdates.updatePlayerNames()
 })
+
 
 
