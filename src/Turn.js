@@ -63,12 +63,12 @@ evaluateGuess(data) {
     })
       return clue;
 
-      if(clue.includes(round.returnDailyDouble()){
+      // if(clue.includes(round.returnDailyDouble()){
         
-        return true
-      }else{
-        return false
-      }
+      //   return true
+      // }else{
+      //   return false
+      // }
 
 
   }

@@ -9,11 +9,13 @@ import Player from "./Player";
 let domUpdates = {
 
 
-  displayPlayersName(data) {
-    const players = data.players.map(person => {
-      return person.name;
+  displayPlayersName(arrayOfPlayers) {
+    console.log(arrayOfPlayers)
+
+    arrayOfPlayers.forEach((person, index) => {
+      $(`.player${index}-name-display`).html(person.name);
+
     })
-    return players;
   },
 
   //user interaction 
@@ -33,13 +35,13 @@ let domUpdates = {
     })
   },
 
-  // displayCluesQuestions(clues) {
-  //   let findClues = clues.findMatchingQuestions();
-  //   clues.forEach((clue, index) => {
-  //     console.log('displayQ', clue.categoryId)
-  //     $(`#js-row-${index}`).html(clue.question);
-  //   })
-  // },
+  displayCluesQuestions(clues) {
+    let findClues = clues.findMatchingQuestions();
+    clues.forEach((clue, index) => {
+      console.log('displayQ', clue.categoryId)
+      $(`#js-row-${index}`).html(clue.question);
+    })
+  },
 
   displayCategories(clues) {
     let findCat = clues.categories;
@@ -51,8 +53,6 @@ let domUpdates = {
   //check answer() have an event listener for submit answer button 
 
   //display final round(one category with one card only)
-
-  //display clues
 
   //display final round(one category with one card only)
 
