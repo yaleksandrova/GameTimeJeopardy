@@ -66,7 +66,11 @@ let domUpdates = {
     //update score on the dom and include spies 
   },
 
-  //display game winner
+updatePlayerNames() {
+  $('#js-player-one-name').text($('#js-input-player-1').val())
+  $('#js-player-two-name').text($('#js-input-player-2').val())
+  $('#js-player-three-name').text($('#js-input-player-3').val())
+},
 
 
 
