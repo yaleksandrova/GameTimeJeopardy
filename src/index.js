@@ -49,6 +49,10 @@ $('#js-names-button').click(function(e) {
   players.push(player1, player2, player3)
   let game = new Game(clues, players)
   let round = new Round(players, 1, clues.categories, clues.cards)
+  let playerOneScore = player1.score = 50
+  let playerTwoScore = player2.score = 100
+  let playerThreeScore = player3.score = 10
+  domUpdates.updatePlayerScore(player1, player2, player3)
   domUpdates.displayCluesIds(clues)
   domUpdates.displayCategories(clues)   
   console.log('sup', round)

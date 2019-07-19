@@ -72,9 +72,16 @@ updatePlayerNames() {
   $('#js-player-three-name').text($('#js-input-player-3').val())
 },
 
-
-
-
+updatePlayerScore(player1, player2, player3) {
+  $('#js-player-one-points').text(player1.score)
+  $('#js-player-two-points').text(player2.score) 
+  $('#js-player-three-points').text(player3.score)  
+  },
 }
+
+
+
+
+
 
 export default domUpdates;
