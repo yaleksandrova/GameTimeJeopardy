@@ -23,7 +23,6 @@ import $ from 'jquery';
 import './css/base.scss';
 
 
-
 //event listener for clue button, for name submit button which will call DOM updates methods
 //e.target
 //check()
@@ -36,6 +35,7 @@ import './css/base.scss';
 
 $('#js-names-button').click(function(e) {
   e.preventDefault();
+
 
 
   let displayJeopardy = document.querySelector("#display-jeopardy");
@@ -60,6 +60,27 @@ $('#js-names-button').click(function(e) {
       domUpdates.displayCategories(clues)   
       domUpdates.displayPlayersName(players)
       console.log('sup', round)
+
+  let clues = new Clues(gameData)
+  clues.shuffleCategories()
+  clues.pickCategories()
+  clues.findMatchingQuestions()
+  let players = [];
+  let player1 = new Player($('#js-input-player-1').val(), 1)
+  let player2 = new Player($('#js-input-player-2').val(), 2)
+  let player3 = new Player($('#js-input-player-3').val(), 3)
+  players.push(player1, player2, player3)
+  let game = new Game(clues, players)
+  let round = new Round(players, 1, clues.categories, clues.cards)
+  let playerOneScore = player1.score = 50
+  let playerTwoScore = player2.score = 100
+  let playerThreeScore = player3.score = 10
+  domUpdates.updatePlayerScore(player1, player2, player3)
+  domUpdates.displayCluesIds(clues)
+  domUpdates.displayCategories(clues)   
+  console.log('sup', round)
+  domUpdates.updatePlayerNames()
+
 })
     });
 
@@ -67,4 +88,5 @@ $('#js-row-8').click(function(e) {
   e.preventDefault();
   let clues = new Clues(gameData)
 })
+
 
