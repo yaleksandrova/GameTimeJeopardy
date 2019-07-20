@@ -23,7 +23,6 @@
       </button>
     </form>
     <main>
-    <div id="display-jeopardy"></div>
       <table class="jeopardy-board">
         <tr>
           <th class="category" id="js-category-0">category-0</th>
@@ -60,21 +59,22 @@
       <section class="player-info">
         <h2 class="players-heading">Players</h2>
         <p class="player-name" id="js-player-one-name">Player One's Name</p>
-        <div class="player0-name-display"></div>
+      <!--  <input type="text" class="answer-input" id="js-input-value-player-1" />
+          <button class="guess-button" id="js-guess-button">Submit Guess</button> -->
+        <div class="input-field"> </div>
+
+
         <p class="player-points">$<span id="js-player-one-points"></span></p>
         <p class="player-name" id="js-player-two-name">Player Two's Name</p>
-        <div class="player1-name-display"></div>
         <p class="player-points">$<span id="js-player-two-points"></span></p>
         <p class="player-name" id="js-player-three-name">Player Three's Name</p>
-        <div class="player2-name-display"></div>
         <p class="player-points">$<span id="js-player-three-points"></span></p>
       </section>
-      <form class="input-guess">
+    <!--  <form class="input-guess">
         <input type="text" class="guess-input" id="js-guess-input" />
         <button class="guess-button" id="js-guess-button">Submit Guess</button>
-      </form>
+      </form> -->
     </main>
-    <!-- <script src="index.js"></script> -->
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>
