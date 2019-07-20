@@ -4,11 +4,12 @@ class Turn {
     this.value = value;
     this.guess = guess;
     this.player = player;
+    this.feedback = '';
   }
 // select a categrory and a clue in one function
-//checking if the clue is daily double 
-//if it is must accept a wager 
-//player must input the wager, check the wager is valid and if it is 
+//checking if the clue is daily double
+//if it is must accept a wager
+//player must input the wager, check the wager is valid and if it is
 //inputting the answer and check the answer
 //update score based on the answer
 //if there is no wager, still check the answer and updare score
@@ -36,15 +37,19 @@ evaluateGuess(data) {
     }else{
       return false
     }
-  };
-  
+  }
+
   giveFeedback(data) {
     if (this.evaluateGuess(data) === true) {
+      this.feedback = "correct";
       return 'correct!';
+
     } else {
+      this.feedback = "incorrect";
       return 'incorrect!';
+
     }
-  };  
+  }
 
   updateScore(data){
     if(this.evaluateGuess(data) === true){
@@ -53,8 +58,8 @@ evaluateGuess(data) {
     }else{
       return this.player.score;
     }
-    
-  };
+
+  }
 
   checkIfCLueIsDailyDouble() {
     const clue = data.clues.filter(item => {
@@ -62,6 +67,7 @@ evaluateGuess(data) {
       item.categoryId === this.category
     })
       return clue;
+    }
 
       // if(clue.includes(round.returnDailyDouble()){
         
@@ -69,12 +75,8 @@ evaluateGuess(data) {
       // }else{
       //   return false
       // }
-
-
-  }
-
+ 
   
-
   //calls on DOM checkDD(){
   //domUpdates()
   //wager()

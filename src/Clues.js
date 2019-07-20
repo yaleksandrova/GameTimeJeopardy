@@ -30,8 +30,6 @@ class Clues {
     })
 
     this.cards = allQuestions.sort((a, b) => a.pointValue - b.pointValue);
-  console.log(cards)
-
   } 
 
 }
