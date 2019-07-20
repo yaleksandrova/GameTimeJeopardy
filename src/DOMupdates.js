@@ -30,7 +30,8 @@ let domUpdates = {
   displayCluesIds(clues) {
     let findClues = clues.cards;
     findClues.forEach((clue, index) => {
-      $(`#js-row-${index}`).html(clue.pointValue);
+      $(`#js-row-${index}`).html(`<h3>${clue.pointValue}</h3>);
+        <p hidden id=${clue.categoryId}>${clue.question}</p>`)
     })
   },
 
@@ -47,6 +48,14 @@ let domUpdates = {
     findCat.forEach((category, index) => {
       $(`#js-category-${index}`).html(category[0]);
     })
+  },
+
+  displayInputFieldForGuess(){
+    $(".input-field").html(`<input type="text" class="input-guess" id="js-input-guess-1" />
+    <button class="guess-button" id="js-guess-button">
+        Submit Guess
+      </button>`);
+
   },
 
   //check answer() have an event listener for submit answer button 
