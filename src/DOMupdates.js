@@ -55,7 +55,10 @@ let domUpdates = {
     <button class="guess-button" id="js-guess-button">
         Submit Guess
       </button>`);
+  },
 
+  displayRightOrWrongMessage(turn){
+    alert(turn.feedback);
   },
 
   //check answer() have an event listener for submit answer button 
