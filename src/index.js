@@ -55,42 +55,40 @@ $('#js-names-button').click(function(e) {
 
   setTimeout(function() {
     if (window.confirm("player 1 it's your turn! Are you ready?")) {
-      let allCards = document.getElementsByClassName('card');
-      allCards.forEach(item => {
-        if(item.id && item.id !=""){
-            document.getElementById(item.id).addEventListener("click", function(){onCardClick(item)});
+      var allCards = document.getElementsByClassName('card');
+
+      // for(let item of allCards ) {
+      //   console.log(item.id)
+      // }
+      for(var i=0;i < allCards.length;i++){
+        if(allCards[i].id && allCards[i].id !=""){
+          let test = allCards[i]
+            document.getElementById(allCards[i].id).addEventListener("click", function(){onCardClick(test)});
+          }
         }
-      })
-      /*
-          for(var i=0;i < allCards.length;i++){
-            if(allCards[i].id && allCards[i].id !=""){
-              let test = allCards[i]
-                document.getElementById(allCards[i].id).addEventListener("click", function(){onCardClick(test)});
-              }
-            }*/
 
       function onCardClick(card) {
 
-              //HERE WE WOULD HAVE OUR CARD FLIP AND SHOW THE Q
+      //HERE WE WOULD HAVE OUR CARD FLIP AND SHOW THE Q
 
-              domUpdates.displayInputFieldForGuess()
-              $('#js-guess-button').click(function(e) {
+      domUpdates.displayInputFieldForGuess()
+      $('#js-guess-button').click(function(e) {
 
-                let categorySelected = $(card).children('p')[0].id
-                let valueSelected = $(card)[0].outerText;
-                let guessInputted = $('#js-input-guess-1').val()
-                let turn = new Turn(categorySelected, valueSelected, guessInputted, player1);
+      let categorySelected = $(card).children('p')[0].id
+      let valueSelected = $(card)[0].outerText;
+      let guessInputted = $('#js-input-guess-1').val()
+      let turn = new Turn(categorySelected, valueSelected, guessInputted, player1);
 
-                turn.evaluateGuess(gameData);
-                turn.giveFeedback(gameData);
+      turn.evaluateGuess(gameData);
+      turn.giveFeedback(gameData);
 
-                domUpdates.displayRightOrWrongMessage(turn)
-              })
-          }
+      domUpdates.displayRightOrWrongMessage(turn)
+        })
+      }
       } else {
-            alert("You may exit the game");
-            return false;
-        }
+        alert("You may exit the game");
+        return false;
+    }
   }, 2000)
 
 })
