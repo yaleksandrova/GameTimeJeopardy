@@ -59,5 +59,38 @@ $('#js-names-button').click(function(e) {
   domUpdates.updatePlayerNames()
 })
 
+setTimeout(function() {
+
+  if (window.confirm("player 1 it's your turn! Are you ready?")) {
+    var allCards = document.getElementsByClassName('card');
+    allCards.for(function(item){
+      if(item.id && item.id !=""){
+          document.getElementById(item.id).addEventListener("click", function(){onCardClick(item)});
+      }
+    })
+
+  function onCardClick(card) {
+
+  //HERE WE WOULD HAVE OUR CARD FLIP AND SHOW THE Q
+
+    domUpdates.displayInputFieldForGuess()
+    $('#js-guess-button').click(function(e) {
+    let categorySelected = $(card).children('p')[0].id
+    let valueSelected = $(card)[0].outerText;
+    let guessInputted = $('#js-input-guess-1').val()
+    let turn = new Turn(categorySelected, valueSelected, guessInputted, player1);
+
+    turn.evaluateGuess(gameData);
+    turn.giveFeedback(gameData);
+
+    domUpdates.displayRightOrWrongMessage(turn)
+          })
+      }
+  } else {
+        alert("You may exit the game");
+        return false;
+    }
+
+}, 3000)
 
 
