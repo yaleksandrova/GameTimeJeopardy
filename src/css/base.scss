@@ -6,16 +6,22 @@ body {
   background-color: $primary-background;
   color: $font-color;
   display: grid;
+  font-size: 1em;
   grid-template-areas:
     "head head"
     "main section";
   grid-template-columns: 80% 20%;
-  grid-template-rows: 15% 85%;
+  grid-template-rows: 10% 85%;
+  height: 100vh;
 }
 
 input {
   border: none;
   border-radius: 3px;
+}
+
+p {
+  padding: 5px;
 }
 
 .header-container {
@@ -34,6 +40,10 @@ input {
   grid-area: section;
 }
 
+.input-guess {
+  grid-area: foot;
+}
+
 .jeopardy-board {
   height: 100%;
   padding: 0 30px;
@@ -45,15 +55,7 @@ th,
 td {
   border: 1px solid #fff;
   border-radius: 6px;
-  height: 20%;
+  max-height: 30px;
   margin: 5px;
-  width: 25%;
-}
-
-.category {
-  grid-area: cat;
-}
-
-.card {
-  grid-area: card;
+  max-width: 30px;
 }
