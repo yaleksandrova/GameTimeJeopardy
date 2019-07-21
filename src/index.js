@@ -1,8 +1,12 @@
-let gameData;
+let clues;
+let game;
 
 fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
   .then(response => response.json())
-  .then(jepData => gameData = jepData.data)
+  .then(gameData => {
+    clues = new Clues(gameData.data);
+    game = new Game(clues);
+  })
   .catch(error => console.log(error))
 
 import Clues from '../src/Clues'
@@ -33,25 +37,16 @@ import './css/base.scss';
 
 $('#js-names-button').click(function(e) {
   e.preventDefault();
-  let clues = new Clues(gameData)
-  clues.shuffleCategories()
-  clues.pickCategories()
-  clues.findMatchingQuestions()
-  let players = [];
+  game.startRound();
   let player1 = new Player($('#js-input-player-1').val(), 1)
   let player2 = new Player($('#js-input-player-2').val(), 2)
   let player3 = new Player($('#js-input-player-3').val(), 3)
-  players.push(player1, player2, player3)
-  let game = new Game(clues, players)
-  let round = new Round(players, 1, clues.categories, clues.cards)
-  let playerOneScore = player1.score = 50
-  let playerTwoScore = player2.score = 100
-  let playerThreeScore = player3.score = 10
+  game.players.push(player1, player2, player3)
+  game.gameStart();
   domUpdates.updatePlayerScore(player1, player2, player3)
   domUpdates.displayCluesIds(clues)
   domUpdates.displayCategories(clues)
   domUpdates.updatePlayerNames()
-
 
   setTimeout(function() {
     if (window.confirm("player 1 it's your turn! Are you ready?")) {
@@ -60,35 +55,37 @@ $('#js-names-button').click(function(e) {
       // for(let item of allCards ) {
       //   console.log(item.id)
       // }
-      for(var i=0;i < allCards.length;i++){
-        if(allCards[i].id && allCards[i].id !=""){
+      for (var i = 0; i < allCards.length; i++) {
+        if (allCards[i].id && allCards[i].id != "") {
           let test = allCards[i]
-            document.getElementById(allCards[i].id).addEventListener("click", function(){onCardClick(test)});
-          }
+          document.getElementById(allCards[i].id).addEventListener("click", function() {
+            onCardClick(test)
+          });
         }
+      }
 
       function onCardClick(card) {
 
-      //HERE WE WOULD HAVE OUR CARD FLIP AND SHOW THE Q
+        //HERE WE WOULD HAVE OUR CARD FLIP AND SHOW THE Q
 
-      domUpdates.displayInputFieldForGuess()
-      $('#js-guess-button').click(function(e) {
+        domUpdates.displayInputFieldForGuess()
+        $('#js-guess-button').click(function(e) {
 
-      let categorySelected = $(card).children('p')[0].id
-      let valueSelected = $(card)[0].outerText;
-      let guessInputted = $('#js-input-guess-1').val()
-      let turn = new Turn(categorySelected, valueSelected, guessInputted, player1);
+          let categorySelected = $(card).children('p')[0].id
+          let valueSelected = $(card)[0].outerText;
+          let guessInputted = $('#js-input-guess-1').val()
+          let turn = new Turn(categorySelected, valueSelected, guessInputted, player1);
 
-      turn.evaluateGuess(gameData);
-      turn.giveFeedback(gameData);
+          turn.evaluateGuess(clues);
+          turn.giveFeedback(clues);
 
-      domUpdates.displayRightOrWrongMessage(turn)
+          domUpdates.displayRightOrWrongMessage(turn)
         })
       }
-      } else {
-        alert("You may exit the game");
-        return false;
+    } else {
+      alert("You may exit the game");
+      return false;
     }
-  }, 2000)
+  }, 2000);
 
 })

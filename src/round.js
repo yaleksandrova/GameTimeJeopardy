@@ -1,12 +1,9 @@
 class Round {
-  constructor(players, numberOfRounds = 1, categories, cards) {
-    this.numberOfRounds = numberOfRounds;
+  constructor(players, currentRound, game) {
     this.players = players;
     this.currentTurn = 1;
-    this.currentRound = 1;
-    this.categories = categories;
-    this.cards = cards;
-
+    this.currentRound = currentRound;
+    this.game = game;
   }
 
   //methods

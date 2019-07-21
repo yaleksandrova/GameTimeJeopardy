@@ -6,35 +6,35 @@ class Turn {
     this.player = player;
     this.feedback = '';
   }
-// select a categrory and a clue in one function
-//checking if the clue is daily double
-//if it is must accept a wager
-//player must input the wager, check the wager is valid and if it is
-//inputting the answer and check the answer
-//update score based on the answer
-//if there is no wager, still check the answer and updare score
-//round class determines what comes to the dashboard
+  // select a categrory and a clue in one function
+  //checking if the clue is daily double
+  //if it is must accept a wager
+  //player must input the wager, check the wager is valid and if it is
+  //inputting the answer and check the answer
+  //update score based on the answer
+  //if there is no wager, still check the answer and updare score
+  //round class determines what comes to the dashboard
 
 
-evaluateGuess(data) {
+  evaluateGuess(data) {
     const array = [];
     data.clues.forEach(item => {
 
-    if(item.categoryId === this.category){
-    array.push(item);
+      if (item.categoryId === this.category) {
+        array.push(item);
       }
     });
 
     const result = [];
     array.forEach(el => {
-    if(el.pointValue === this.value){
+      if (el.pointValue === this.value) {
         result.push(el.answer);
-    }
-  });
+      }
+    });
 
-    if(result.includes(this.guess)){
+    if (result.includes(this.guess)) {
       return true
-    }else{
+    }else {
       return false
     }
   }
@@ -51,11 +51,11 @@ evaluateGuess(data) {
     }
   }
 
-  updateScore(data){
-    if(this.evaluateGuess(data) === true){
+  updateScore(data) {
+    if (this.evaluateGuess(data) === true) {
       this.player.score += this.value;
       return this.player.score;
-    }else{
+    } else{
       return this.player.score;
     }
 
@@ -66,15 +66,15 @@ evaluateGuess(data) {
       return item.pointValue === this.value &&
       item.categoryId === this.category
     })
-      return clue;
-    }
+    return clue;
+  }
 
-      // if(clue.includes(round.returnDailyDouble()){
+  // if(clue.includes(round.returnDailyDouble()){
         
-      //   return true
-      // }else{
-      //   return false
-      // }
+  //   return true
+  // }else{
+  //   return false
+  // }
  
   
   //calls on DOM checkDD(){
@@ -85,10 +85,10 @@ evaluateGuess(data) {
   
 
   inputWager(points) {
-// check if the wager is valid
-//if (points > 0)
-//come from the round class or logic needs set up here
-  };
+    // check if the wager is valid
+    //if (points > 0)
+    //come from the round class or logic needs set up here
+  }
 
 }
 

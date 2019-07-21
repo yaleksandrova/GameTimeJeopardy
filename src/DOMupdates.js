@@ -8,13 +8,6 @@ import Turn from '../src/turn'
 // import data from '../src/data/data';
 //import
 
-
-
-
-
-
-
-
 let domUpdates = {
 
 
@@ -64,7 +57,7 @@ let domUpdates = {
   },
 
 
-  displayInputFieldForGuess(){
+  displayInputFieldForGuess() {
     $(".input-field").html(`<input type="text" class="input-guess" id="js-input-guess-1" />
      <button class="guess-button" id="js-guess-button">
         Submit Guess
@@ -72,7 +65,7 @@ let domUpdates = {
 
   },
 
-  displayRightOrWrongMessage(turn){
+  displayRightOrWrongMessage(turn) {
     alert(turn.feedback);
   },
 
@@ -94,16 +87,16 @@ let domUpdates = {
     //update score on the dom and include spies
   },
 
-updatePlayerNames() {
-  $('#js-player-one-name').text($('#js-input-player-1').val())
-  $('#js-player-two-name').text($('#js-input-player-2').val())
-  $('#js-player-three-name').text($('#js-input-player-3').val())
-},
+  updatePlayerNames() {
+    $('#js-player-one-name').text($('#js-input-player-1').val())
+    $('#js-player-two-name').text($('#js-input-player-2').val())
+    $('#js-player-three-name').text($('#js-input-player-3').val())
+  },
 
-updatePlayerScore(player1, player2, player3) {
-  $('#js-player-one-points').text(player1.score)
-  $('#js-player-two-points').text(player2.score)
-  $('#js-player-three-points').text(player3.score)
+  updatePlayerScore(player1, player2, player3) {
+    $('#js-player-one-points').text(player1.score)
+    $('#js-player-two-points').text(player2.score)
+    $('#js-player-three-points').text(player3.score)
   },
 }
 
