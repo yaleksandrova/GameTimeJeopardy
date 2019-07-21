@@ -37,7 +37,7 @@ let domUpdates = {
     let findClues = clues.cards;
     findClues.forEach((clue, index) => {
       $(`#js-row-${index}`).html(`<h3>${clue.pointValue}</h3>
-           <p hidden id=${clue.categoryId}>${clue.question}</p>`)
+          <p hidden id=${clue.categoryId}>${clue.question}</p>`)
     })
   },
 
@@ -59,7 +59,7 @@ let domUpdates = {
 
   displayInputFieldForGuess() {
     $(".input-field").html(`<input type="text" class="input-guess" id="js-input-guess-1" />
-     <button class="guess-button" id="js-guess-button">
+    <button class="guess-button" id="js-guess-button">
         Submit Guess
       </button>`);
 

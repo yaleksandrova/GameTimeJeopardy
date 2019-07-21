@@ -18,7 +18,7 @@ class Turn {
 
   evaluateGuess(data) {
     const array = [];
-    data.clues.forEach(item => {
+    data.categories.forEach(item => {
 
       if (item.categoryId === this.category) {
         array.push(item);
@@ -34,7 +34,7 @@ class Turn {
 
     if (result.includes(this.guess)) {
       return true
-    }else {
+    } else {
       return false
     }
   }
