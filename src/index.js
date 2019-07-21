@@ -35,6 +35,8 @@ import './css/base.scss';
 //   // domUpdates.displayCluesQuestions();
 // })
 
+$('#js-jeopardy-board').hide();
+
 $('#js-names-button').click(function(e) {
   e.preventDefault();
   game.startRound();
@@ -47,6 +49,8 @@ $('#js-names-button').click(function(e) {
   domUpdates.displayCluesIds(clues)
   domUpdates.displayCategories(clues)
   domUpdates.updatePlayerNames()
+  $('#js-input-names').hide();
+  $('#js-jeopardy-board').show();
 
   setTimeout(function() {
     if (window.confirm("player 1 it's your turn! Are you ready?")) {

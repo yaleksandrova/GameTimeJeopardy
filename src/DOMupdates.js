@@ -36,7 +36,7 @@ let domUpdates = {
   displayCluesIds(clues) {
     let findClues = clues.cards;
     findClues.forEach((clue, index) => {
-      $(`#js-row-${index}`).html(`<h3>${clue.pointValue}</h3>
+      $(`#js-row-${index}`).html(`<h3>$${clue.pointValue}</h3>
            <p hidden id=${clue.categoryId}>${clue.question}</p>`)
     })
   },
