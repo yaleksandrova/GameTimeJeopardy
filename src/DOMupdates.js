@@ -3,8 +3,17 @@ import Clues from './Clues';
 import Data from '../src/data/data';
 import Player from "./Player";
 
+import Turn from '../src/turn'
+
 // import data from '../src/data/data';
-//import 
+//import
+
+
+
+
+
+
+
 
 let domUpdates = {
 
@@ -16,20 +25,26 @@ let domUpdates = {
     return players;
   },
 
-  //user interaction 
+
+
+  //user interaction
   //method that checksDD() {
-  //if click is DD  
+  //if click is DD
   //}
   //event listener goes in index.js
 
   //show current round in top of the screen
 
+
   //display the categories
+
+
 
   displayCluesIds(clues) {
     let findClues = clues.cards;
     findClues.forEach((clue, index) => {
-      $(`#js-row-${index}`).html(clue.pointValue);
+      $(`#js-row-${index}`).html(`<h3>${clue.pointValue}</h3>
+           <p hidden id=${clue.categoryId}>${clue.question}</p>`)
     })
   },
 
@@ -48,7 +63,20 @@ let domUpdates = {
     })
   },
 
-  //check answer() have an event listener for submit answer button 
+
+  displayInputFieldForGuess(){
+    $(".input-field").html(`<input type="text" class="input-guess" id="js-input-guess-1" />
+     <button class="guess-button" id="js-guess-button">
+        Submit Guess
+      </button>`);
+
+  },
+
+  displayRightOrWrongMessage(turn){
+    alert(turn.feedback);
+  },
+
+  //check answer() have an event listener for submit answer button
 
   //display final round(one category with one card only)
 
@@ -63,7 +91,7 @@ let domUpdates = {
     } else {
       return this.player.score;
     }
-    //update score on the dom and include spies 
+    //update score on the dom and include spies
   },
 
 updatePlayerNames() {
@@ -74,8 +102,8 @@ updatePlayerNames() {
 
 updatePlayerScore(player1, player2, player3) {
   $('#js-player-one-points').text(player1.score)
-  $('#js-player-two-points').text(player2.score) 
-  $('#js-player-three-points').text(player3.score)  
+  $('#js-player-two-points').text(player2.score)
+  $('#js-player-three-points').text(player3.score)
   },
 }
 

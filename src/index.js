@@ -5,14 +5,11 @@ fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
   .then(jepData => gameData = jepData.data)
   .catch(error => console.log(error))
 
-
 import Clues from '../src/Clues'
-
 import Player from '../src/Player'
-
 import Game from '../src/game';
-
 import Round from '../src/round'
+import Turn from '../src/turn'
 
 // import Data from '../src/data/data'
 // This is the JavaScript entry file - your code begins here
@@ -29,8 +26,6 @@ import './css/base.scss';
 //event listener for clue button, for name submit button which will call DOM updates methods
 //e.target
 //check()
-
-
 
 // $('#js-row-0').click(function() {
 //   // domUpdates.displayCluesQuestions();
@@ -54,10 +49,46 @@ $('#js-names-button').click(function(e) {
   let playerThreeScore = player3.score = 10
   domUpdates.updatePlayerScore(player1, player2, player3)
   domUpdates.displayCluesIds(clues)
-  domUpdates.displayCategories(clues)   
-  console.log('sup', round)
+  domUpdates.displayCategories(clues)
   domUpdates.updatePlayerNames()
+
+
+  setTimeout(function() {
+    if (window.confirm("player 1 it's your turn! Are you ready?")) {
+      var allCards = document.getElementsByClassName('card');
+
+      // for(let item of allCards ) {
+      //   console.log(item.id)
+      // }
+      for(var i=0;i < allCards.length;i++){
+        if(allCards[i].id && allCards[i].id !=""){
+          let test = allCards[i]
+            document.getElementById(allCards[i].id).addEventListener("click", function(){onCardClick(test)});
+          }
+        }
+
+      function onCardClick(card) {
+
+      //HERE WE WOULD HAVE OUR CARD FLIP AND SHOW THE Q
+
+      domUpdates.displayInputFieldForGuess()
+      $('#js-guess-button').click(function(e) {
+
+      let categorySelected = $(card).children('p')[0].id
+      let valueSelected = $(card)[0].outerText;
+      let guessInputted = $('#js-input-guess-1').val()
+      let turn = new Turn(categorySelected, valueSelected, guessInputted, player1);
+
+      turn.evaluateGuess(gameData);
+      turn.giveFeedback(gameData);
+
+      domUpdates.displayRightOrWrongMessage(turn)
+        })
+      }
+      } else {
+        alert("You may exit the game");
+        return false;
+    }
+  }, 2000)
+
 })
-
-
-
