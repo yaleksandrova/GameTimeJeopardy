@@ -36,8 +36,10 @@ let domUpdates = {
   displayCluesIds(clues) {
     let findClues = clues.cards;
     findClues.forEach((clue, index) => {
-      $(`#js-row-${index}`).html(`<h3>${clue.pointValue}</h3>
-           <p hidden id=${clue.categoryId}>${clue.question}</p>`)
+       $(".card").on("click", function(e) {
+      $(e.target).closest($(`#js-row-${index}`)).html(`<h3>${clue.question}</h3>
+           <p hidden class='para' id=${clue.categoryId}>${clue.question}</p>`)
+    })
     })
   },
 
@@ -98,7 +100,23 @@ let domUpdates = {
     $('#js-player-two-points').text(player2.score)
     $('#js-player-three-points').text(player3.score)
   },
+
+  displayCurrentQuestion(e) {
+    $('.card').on('click', function(e) {
+      $(e.target.closest('h3')).hide();
+    })
+  }
+
+
 }
+
+
+
+
+
+
+
+
 
 
 
