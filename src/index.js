@@ -1,8 +1,12 @@
-let gameData;
+let clues;
+let game;
 
 fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
   .then(response => response.json())
-  .then(jepData => gameData = jepData.data)
+  .then(gameData => {
+    clues = new Clues(gameData.data);
+    game = new Game(clues)
+  })
   .catch(error => console.log(error))
 
 
@@ -38,26 +42,14 @@ import './css/base.scss';
 
 $('#js-names-button').click(function(e) {
   e.preventDefault();
-  let clues = new Clues(gameData)
-  clues.shuffleCategories()
-  clues.pickCategories()
-  clues.findMatchingQuestions()
-  let players = [];
+  game.startRound();
   let player1 = new Player($('#js-input-player-1').val(), 1)
   let player2 = new Player($('#js-input-player-2').val(), 2)
   let player3 = new Player($('#js-input-player-3').val(), 3)
-  players.push(player1, player2, player3)
-  let game = new Game(clues, players)
-  let round = new Round(players, 1, clues.categories, clues.cards)
-  let playerOneScore = player1.score = 50
-  let playerTwoScore = player2.score = 100
-  let playerThreeScore = player3.score = 10
+  game.players.push(player1, player2, player3)
+  game.gameStart();
   domUpdates.updatePlayerScore(player1, player2, player3)
   domUpdates.displayCluesIds(clues)
-  domUpdates.displayCategories(clues)   
-  console.log('sup', round)
+  domUpdates.displayCategories(clues)
   domUpdates.updatePlayerNames()
 })
-
-
-
