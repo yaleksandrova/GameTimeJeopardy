@@ -35,6 +35,8 @@ import './css/base.scss';
 //   // domUpdates.displayCluesQuestions();
 // })
 
+$('#js-jeopardy-board').hide();
+
 $('#js-names-button').click(function(e) {
   e.preventDefault();
   game.startRound();
@@ -47,7 +49,10 @@ $('#js-names-button').click(function(e) {
   domUpdates.displayCluesIds(clues)
   domUpdates.displayCategories(clues)
   domUpdates.updatePlayerNames()
+  $('#js-input-names').hide();
+  $('#js-jeopardy-board').show();
   domUpdates.displayCurrentQuestion(e)
+
 
   setTimeout(function() {
     if (window.confirm("player 1 it's your turn! Are you ready?")) {
@@ -76,12 +81,8 @@ $('#js-names-button').click(function(e) {
           let valueSelected = $(card)[0].outerText;
           let guessInputted = $('#js-input-value').val();
           let turn = new Turn(categorySelected, valueSelected, guessInputted, player1);
-<<<<<<< HEAD
 
           turn.evaluateGuess(clues)
-=======
-          turn.evaluateGuess(clues);
->>>>>>> 44af259c33076863ecfee600e9d5bc88e3ce77e9
           turn.giveFeedback(clues);
 
           domUpdates.displayRightOrWrongMessage(turn);
