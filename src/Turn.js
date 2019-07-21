@@ -55,7 +55,7 @@ class Turn {
     if (this.evaluateGuess(data) === true) {
       this.player.score += this.value;
       return this.player.score;
-    } else{
+    } else {
       return this.player.score;
     }
 
