@@ -51,6 +51,8 @@ $('#js-names-button').click(function(e) {
   domUpdates.updatePlayerNames()
   $('#js-input-names').hide();
   $('#js-jeopardy-board').show();
+  domUpdates.displayCurrentQuestion(e)
+
 
   setTimeout(function() {
     if (window.confirm("player 1 it's your turn! Are you ready?")) {
@@ -89,6 +91,6 @@ $('#js-names-button').click(function(e) {
       alert("You may exit the game");
       return false;
     }
-  }, 2000);
+  }, 500);
 
 })
