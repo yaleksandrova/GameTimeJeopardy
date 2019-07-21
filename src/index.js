@@ -73,13 +73,12 @@ $('#js-names-button').click(function(e) {
 
           let categorySelected = $(card).children('p')[0].id
           let valueSelected = $(card)[0].outerText;
-          let guessInputted = $('#js-input-guess-1').val()
+          let guessInputted = $('#js-input-value').val();
           let turn = new Turn(categorySelected, valueSelected, guessInputted, player1);
-
           turn.evaluateGuess(clues);
           turn.giveFeedback(clues);
 
-          domUpdates.displayRightOrWrongMessage(turn)
+          domUpdates.displayRightOrWrongMessage(turn);
         })
       }
     } else {

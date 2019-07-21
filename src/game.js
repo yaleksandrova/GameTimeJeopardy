@@ -1,10 +1,12 @@
 import Round from "./round";
+import Turn from "./Turn";
 
 class Game {
   constructor(clues) {
     this.clues = clues;
     this.players = [];
     this.roundNum = 1;
+    this.roundCards = 16;
     this.round;
   }
 
