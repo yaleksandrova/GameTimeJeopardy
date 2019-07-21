@@ -36,10 +36,10 @@ let domUpdates = {
   displayCluesIds(clues) {
     let findClues = clues.cards;
     findClues.forEach((clue, index) => {
-       $(".card").on("click", function(e) {
-      $(e.target).closest($(`#js-row-${index}`)).html(`<h3>${clue.question}</h3>
-           <p hidden class='para' id=${clue.categoryId}>${clue.question}</p>`)
-    })
+      $(".card").on("click", function(e) {
+        $(e.target).closest($(`#js-row-${index}`)).html(`<p>${clue.question}</p>`
+        )
+      })
     })
   },
 
