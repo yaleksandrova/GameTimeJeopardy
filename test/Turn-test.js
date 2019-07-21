@@ -5,6 +5,7 @@ import DOMupdates from '../src/DOMupdates.js';
 import Turn from '../src/Turn';
 import data from '../src/data/data';
 import Player from '../src/Player';
+import Round from '../src/round.js';
 chai.use(spies);
 // chai.spy.on(document, ['setItem', 'getItem'], () => {});
 
@@ -13,6 +14,13 @@ let player;
 beforeEach(() => {
   player = new Player('Moisey', 1);
   turn = new Turn(7, 200, "Buddha", player);
+  // players = [
+  //   {id: 1, name: 'Spam', score: 5},
+  //   {id: 2, name: 'Jessie', score: 2},
+  //   {id: 3, name: 'Yana', score: 20}
+  // ];
+  // round = new Round(players)
+  
 });
 
 describe('Turn', () => {
