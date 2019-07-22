@@ -21,37 +21,9 @@ class Turn {
 
 
   evaluateGuess(clueObj) {
-    // const array = [];
-    // data.categories.forEach(item => {
 
-    //   if (item.id === this.category) {
-    //     array.push(item);
-    //   }
-    // });
-    // const result = [];
-    // array.forEach(el => {
-    //   if (el.pointValue === this.value) {
-    //     result.push(el.answer);
-    //   }
-    // });
-    // if (result.includes(this.guess)) {
-    //   return true
-    // } else {
-    //   return false
-    // }
     return clueObj.answer === this.guess;
-  }
-
-  giveFeedback(data) {
-    if (this.evaluateGuess(data) === true) {
-      this.feedback = "correct";
-      return 'correct!';
-
-    } else {
-      this.feedback = "incorrect";
-      return 'incorrect!';
-
-    }
+    // this.giveFeedback();
   }
 
   updateScore(data) {

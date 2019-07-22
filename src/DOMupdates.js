@@ -64,9 +64,23 @@ let domUpdates = {
 
   },
 
-  displayRightOrWrongMessage(turn) {
-    alert(turn.feedback);
+    giveFeedback(value, card) {
+    if (value === true) {
+      $("#js-show-answer").text('YOU GUESSED CORRECTLY!');
+      $(`#${card.id}`).text('')
+      $('#js-guess-input').val('')
+      } else {
+      console.log('fine', card.id)
+      $("#js-show-answer").text('YOU GUESSED INCORRECTLY!');
+      $('#js-guess-input').val('')
+
+      
+    }
   },
+
+  // displayRightOrWrongMessage(turn) {
+  //   alert(turn.feedback);
+  // },
 
   //check answer() have an event listener for submit answer button
 
@@ -102,7 +116,9 @@ let domUpdates = {
     $('.card').on('click', function(e) {
       $(e.target.closest('h3')).hide();
     })
-  }
+  },
+
+
 
 
 }
