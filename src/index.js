@@ -1,5 +1,6 @@
 let clues;
 let game;
+let turn;
 
 fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
   .then(response => response.json())
@@ -82,7 +83,8 @@ $('#js-names-button').click(function(e) {
           let valueSelected = $(card)[0].outerText;
           let guessInputted = $('#js-input-value').val();
           let turn = new Turn(categorySelected, valueSelected, guessInputted, player1);
-          turn.evaluateGuess(clues);
+
+          turn.evaluateGuess(clues)
           turn.giveFeedback(clues);
 
           domUpdates.displayRightOrWrongMessage(turn);
