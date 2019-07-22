@@ -22,10 +22,15 @@ describe('Clues', function() {
   });
 
   it('should pick new categories depending on the round', () => {
-    expect(clues.pickCategories()).to.have.lengthOf(4);
+    clues.shuffleCategories();
+    clues.pickCategories();
+    expect(clues.categories.length).to.eql(4);
   });
 
   it('should find the cards based on chosen categories', () => {
-    expect(clues.findMatchingQuestions()).to.have.lengthOf(16);
+    clues.shuffleCategories();
+    clues.pickCategories();
+    clues.findMatchingQuestions();
+    expect(clues.cards.length).to.eql(16);
   });
 });
