@@ -1,3 +1,5 @@
+import Round from '../src/round'
+
 class Turn {
   constructor (category, value, guess, player) {
     this.category = category;
@@ -15,6 +17,7 @@ class Turn {
   //update score based on the answer
   //if there is no wager, still check the answer and updare score
   //round class determines what comes to the dashboard
+
 
 
   evaluateGuess(clueObj) {
@@ -84,12 +87,16 @@ class Turn {
   //add DD class
   
 
-  inputWager(points) {
-    // check if the wager is valid
-    //if (points > 0)
-    //come from the round class or logic needs set up here
+  inputWager() {
+      const highestPointValue = 400;
+      if (round.currentTurn === 2) {
+        highestPointValue = 800
+      } else if (round.currentTurn === 3) {
+        highestPointValue = this.player.value
+      }
+      const wagerMin = 5;
+      const wagerMax = highestPointValue;
+    } 
   }
-
-}
 
 export default Turn;
