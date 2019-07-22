@@ -1,4 +1,4 @@
-import Round from '../src/Round'
+import Round from '../src/round'
 
 class Turn {
   constructor (category, value, guess, player) {
@@ -91,7 +91,7 @@ class Turn {
       if (round.currentTurn === 2) {
         highestPointValue = 800
       } else if (round.currentTurn === 3) {
-        highestPointValue = this.player.score
+        highestPointValue = this.player.value
       }
       const wagerMin = 5;
       const wagerMax = highestPointValue;

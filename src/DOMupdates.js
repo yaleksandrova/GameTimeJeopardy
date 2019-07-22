@@ -3,7 +3,7 @@ import Clues from './Clues';
 import Data from '../src/data/data';
 import Player from "./Player";
 
-import Turn from '../src/Turn'
+import Turn from '../src/turn'
 
 let domUpdates = {
 
@@ -34,9 +34,9 @@ let domUpdates = {
     let findClues = clues.cards;
     findClues.forEach((clue, index) => {
       $(".card").on("click", function(e) {
-      $(e.target).closest($(`#js-row-${index}`)).html(`<h3>${clue.question}</h3>
-          <p hidden class='para' id=${clue.categoryId}>${clue.question}</p>`)
-    })
+        $(e.target).closest($(`#js-row-${index}`)).html(`<p>${clue.question}</p>`
+        )
+      })
     })
   },
 

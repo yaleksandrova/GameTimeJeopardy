@@ -1,5 +1,5 @@
-import Round from "./Round";
-import Turn from "./Turn";
+import Round from "./round";
+import Turn from "./turn";
 
 class Game {
   constructor(clues) {

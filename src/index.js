@@ -1,5 +1,6 @@
 let clues;
 let game;
+let turn;
 
 fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
   .then(response => response.json())
@@ -11,9 +12,9 @@ fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
 
 import Clues from '../src/Clues'
 import Player from '../src/Player'
-import Game from '../src/Game';
-import Round from '../src/Round'
-import Turn from '../src/Turn'
+import Game from '../src/game';
+import Round from '../src/round'
+import Turn from '../src/turn'
 
 // import Data from '../src/data/data'
 // This is the JavaScript entry file - your code begins here
