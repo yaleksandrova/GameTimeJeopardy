@@ -70,34 +70,11 @@ let domUpdates = {
       $(`#${card.id}`).text('')
       $('#js-guess-input').val('')
       } else {
-      console.log('fine', card.id)
       $("#js-show-answer").text('YOU GUESSED INCORRECTLY!');
       $('#js-guess-input').val('')
 
       
     }
-  },
-
-  // displayRightOrWrongMessage(turn) {
-  //   alert(turn.feedback);
-  // },
-
-  //check answer() have an event listener for submit answer button
-
-  //display final round(one category with one card only)
-
-  //display clues
-
-  //display final round(one category with one card only)
-
-  updateScore(data) {
-    if (this.evaluateGuess(data) === true) {
-      this.player.score += this.value;
-      return this.player.score;
-    } else {
-      return this.player.score;
-    }
-    //update score on the dom and include spies
   },
 
   updatePlayerNames() {

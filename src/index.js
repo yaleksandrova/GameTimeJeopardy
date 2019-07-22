@@ -1,6 +1,6 @@
 let clues;
 let game;
-let turn;
+
 
 fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
   .then(response => response.json())
@@ -74,13 +74,11 @@ $('#js-names-button').click(function(e) {
 
       function onCardClick(card) {
         let question = card.innerText
-        console.log('this', card)
         let clueObj = clues.cards.find(clue => {
           return clue.question === question;
         })
-        console.log(player1)
-        console.log(clues)
-        console.log(clueObj)
+
+        console.log('clue object', clueObj)
         //HERE WE WOULD HAVE OUR CARD FLIP AND SHOW THE Q
 
         // domUpdates.displayInputFieldForGuess()
@@ -91,10 +89,11 @@ $('#js-names-button').click(function(e) {
           // console.log(categorySelected)
           // let valueSelected = $(card)[0].outerText;
           let guessInputted = $('#js-guess-input').val();
-          let turn = new Turn(6, clueObj.pointValue, guessInputted, player1);
+          let turn = new Turn(clueObj.answer, clueObj.pointValue, guessInputted, player1);
           // console.log(turn)
-          let evaluateGuess = turn.evaluateGuess(clueObj)
+          let evaluateGuess = turn.evaluateGuess()
           domUpdates.giveFeedback(evaluateGuess, card)
+          turn.updateScore(evaluateGuess)
          
 
           // domUpdates.displayRightOrWrongMessage(turn);
