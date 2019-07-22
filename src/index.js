@@ -72,9 +72,13 @@ $('#js-names-button').click(function(e) {
 
       function onCardClick(card) {
         let question = card.innerText
+        console.log(question)
+        let clueObj = clues.cards.find(clue => {
+          return clue.question === question;
+        })
         console.log(player1)
-        console.log(card)
         console.log(clues)
+        console.log(clueObj)
         //HERE WE WOULD HAVE OUR CARD FLIP AND SHOW THE Q
 
         // domUpdates.displayInputFieldForGuess()
@@ -85,10 +89,10 @@ $('#js-names-button').click(function(e) {
           let valueSelected = $(card)[0].outerText;
 
           let guessInputted = $('#js-guess-input').val();
-          let turn = new Turn(categorySelected, valueSelected, guessInputted, player1);
-          // console.log(turn)
-          turn.evaluateGuess(clues)
-          // turn.giveFeedback(clues);
+          let turn = new Turn(categorySelected, clueObj.pointValue, guessInputted, player1);
+          console.log(turn)
+          console.log(turn.evaluateGuess(clueObj))
+         
 
           domUpdates.displayRightOrWrongMessage(turn);
         })

@@ -103,7 +103,7 @@ let domUpdates = {
 
   displayCurrentQuestion(e) {
     $('.card').on('click', function(e) {
-      $(e.target.closest('h3 ')).hide();
+      $(e.target.closest('h3')).hide();
     })
   }
 

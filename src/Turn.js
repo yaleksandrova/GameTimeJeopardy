@@ -17,28 +17,26 @@ class Turn {
   //round class determines what comes to the dashboard
 
 
-  evaluateGuess(data) {
-    console.log(this.category)
-    const array = [];
-    data.categories.forEach(item => {
+  evaluateGuess(clueObj) {
+    // const array = [];
+    // data.categories.forEach(item => {
 
-      if (item[1] === this.category) {
-        array.push(item);
-      }
-    });
-    console.log(array)
-    const result = [];
-    array.forEach(el => {
-      if (el.pointValue === this.value) {
-        result.push(el.answer);
-      }
-    });
-    console.log(result)
+    //   if (item.id === this.category) {
+    //     array.push(item);
+    //   }
+    // });
+    // const result = [];
+    // array.forEach(el => {
+    //   if (el.pointValue === this.value) {
+    //     result.push(el.answer);
+    //   }
+    // });
     // if (result.includes(this.guess)) {
     //   return true
     // } else {
     //   return false
     // }
+    return clueObj.answer === this.guess;
   }
 
   giveFeedback(data) {
