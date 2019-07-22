@@ -55,8 +55,9 @@ $('#js-names-button').click(function(e) {
   domUpdates.displayCurrentQuestion(e)
 
 
-  setTimeout(function() {
-    if (window.confirm("player 1 it's your turn! Are you ready?")) {
+
+  // setTimeout(function() {
+  //   if (window.confirm("player 1 it's your turn! Are you ready?")) {
       var allCards = document.getElementsByClassName('card');
 
       // for(let item of allCards ) {
@@ -73,7 +74,7 @@ $('#js-names-button').click(function(e) {
 
       function onCardClick(card) {
         let question = card.innerText
-        console.log(question)
+        console.log('this', card)
         let clueObj = clues.cards.find(clue => {
           return clue.question === question;
         })
@@ -84,24 +85,25 @@ $('#js-names-button').click(function(e) {
 
         // domUpdates.displayInputFieldForGuess()
         $('#js-guess-button').click(function(e) {
+          e.preventDefault();
 
-          let categorySelected = $(card).children('p')[0].id
-          console.log(categorySelected)
-          let valueSelected = $(card)[0].outerText;
-
+          // let categorySelected = $(card).children('p')[0]
+          // console.log(categorySelected)
+          // let valueSelected = $(card)[0].outerText;
           let guessInputted = $('#js-guess-input').val();
-          let turn = new Turn(categorySelected, clueObj.pointValue, guessInputted, player1);
-          console.log(turn)
-          console.log(turn.evaluateGuess(clueObj))
+          let turn = new Turn(6, clueObj.pointValue, guessInputted, player1);
+          // console.log(turn)
+          let evaluateGuess = turn.evaluateGuess(clueObj)
+          domUpdates.giveFeedback(evaluateGuess, card)
          
 
-          domUpdates.displayRightOrWrongMessage(turn);
+          // domUpdates.displayRightOrWrongMessage(turn);
         })
       }
-    } else {
-      alert("You may exit the game");
-      return false;
-    }
-  }, 500);
+  //   } else {
+  //     alert("You may exit the game");
+  //     return false;
+  //   }
+  // }, 500);
 
 })
