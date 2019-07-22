@@ -72,20 +72,28 @@ $('#js-names-button').click(function(e) {
       }
 
       function onCardClick(card) {
-
+        let question = card.innerText
+        console.log(question)
+        let clueObj = clues.cards.find(clue => {
+          return clue.question === question;
+        })
+        console.log(player1)
+        console.log(clues)
+        console.log(clueObj)
         //HERE WE WOULD HAVE OUR CARD FLIP AND SHOW THE Q
 
-        domUpdates.displayInputFieldForGuess()
+        // domUpdates.displayInputFieldForGuess()
         $('#js-guess-button').click(function(e) {
 
           let categorySelected = $(card).children('p')[0].id
           console.log(categorySelected)
           let valueSelected = $(card)[0].outerText;
-          let guessInputted = $('#js-input-value').val();
-          let turn = new Turn(categorySelected, valueSelected, guessInputted, player1);
 
-          turn.evaluateGuess(clues)
-          turn.giveFeedback(clues);
+          let guessInputted = $('#js-guess-input').val();
+          let turn = new Turn(categorySelected, clueObj.pointValue, guessInputted, player1);
+          console.log(turn)
+          console.log(turn.evaluateGuess(clueObj))
+         
 
           domUpdates.displayRightOrWrongMessage(turn);
         })

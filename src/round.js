@@ -1,12 +1,9 @@
-let turn;
-
 class Round {
-  constructor(players, currentRound, game, turn) {
+  constructor(players, currentRound, game) {
     this.players = players;
     this.currentTurn = 1;
     this.currentRound = currentRound;
     this.game = game;
-    this.turn = new Turn;
   }
 
   //methods

@@ -7,6 +7,7 @@ class Turn {
     this.guess = guess;
     this.player = player;
     this.feedback = '';
+    console.log(this);
   }
   // select a categrory and a clue in one function
   //checking if the clue is daily double
@@ -18,27 +19,27 @@ class Turn {
   //round class determines what comes to the dashboard
 
 
-  evaluateGuess(data) {
-    const array = [];
-    data.clues.forEach(item => {
 
-      if (item.categoryId === this.category) {
-        array.push(item);
-      }
-    });
+  evaluateGuess(clueObj) {
+    // const array = [];
+    // data.categories.forEach(item => {
 
-    const result = [];
-    array.forEach(el => {
-      if (el.pointValue === this.value) {
-        result.push(el.answer);
-      }
-    });
-
-    if (result.includes(this.guess)) {
-      return true
-    } else {
-      return false
-    }
+    //   if (item.id === this.category) {
+    //     array.push(item);
+    //   }
+    // });
+    // const result = [];
+    // array.forEach(el => {
+    //   if (el.pointValue === this.value) {
+    //     result.push(el.answer);
+    //   }
+    // });
+    // if (result.includes(this.guess)) {
+    //   return true
+    // } else {
+    //   return false
+    // }
+    return clueObj.answer === this.guess;
   }
 
   giveFeedback(data) {
