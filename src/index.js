@@ -78,6 +78,7 @@ $('#js-names-button').click(function(e) {
         $('#js-guess-button').click(function(e) {
 
           let categorySelected = $(card).children('p')[0].id
+          console.log(categorySelected)
           let valueSelected = $(card)[0].outerText;
           let guessInputted = $('#js-input-value').val();
           let turn = new Turn(categorySelected, valueSelected, guessInputted, player1);
