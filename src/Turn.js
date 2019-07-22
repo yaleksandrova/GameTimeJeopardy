@@ -18,7 +18,7 @@ class Turn {
 
   evaluateGuess(data) {
     const array = [];
-    data.categories.forEach(item => {
+    data.clues.forEach(item => {
 
       if (item.categoryId === this.category) {
         array.push(item);
@@ -84,12 +84,16 @@ class Turn {
   //add DD class
   
 
-  inputWager(points) {
-    // check if the wager is valid
-    //if (points > 0)
-    //come from the round class or logic needs set up here
+  inputWager() {
+      let highestPointValue = 400;
+      if (round.currentTurn === 2) {
+        highestPointValue = 800
+      } else if (round.currentTurn === 3) {
+        highestPointValue = this.player.score
+      }
+      let wagerMin = 5;
+      let wagerMax = highestPointValue;
+    } 
   }
-
-}
 
 export default Turn;

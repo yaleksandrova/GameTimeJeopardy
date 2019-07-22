@@ -11,9 +11,9 @@ fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
 
 import Clues from '../src/Clues'
 import Player from '../src/Player'
-import Game from '../src/game';
-import Round from '../src/round'
-import Turn from '../src/turn'
+import Game from '../src/Game';
+import Round from '../src/Round'
+import Turn from '../src/Turn'
 
 // import Data from '../src/data/data'
 // This is the JavaScript entry file - your code begins here

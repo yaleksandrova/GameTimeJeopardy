@@ -3,10 +3,7 @@ import Clues from './Clues';
 import Data from '../src/data/data';
 import Player from "./Player";
 
-import Turn from '../src/turn'
-
-// import data from '../src/data/data';
-//import
+import Turn from '../src/Turn'
 
 let domUpdates = {
 
