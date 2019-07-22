@@ -1,12 +1,12 @@
 import Round from '../src/round'
 
 class Turn {
-  constructor (category, value, guess, player) {
-    this.category = category;
-    this.value = value;
+  constructor (answer, points, guess, player) {
+    this.answer = answer;
+    this.points = points;
     this.guess = guess;
     this.player = player;
-    this.feedback = '';
+
     console.log(this);
   }
   // select a categrory and a clue in one function
@@ -20,25 +20,32 @@ class Turn {
 
 
 
-  evaluateGuess(clueObj) {
-
-    return clueObj.answer === this.guess;
+  evaluateGuess() {
+    console.log('this', this)
+    return this.answer === this.guess;
     // this.giveFeedback();
   }
 
-  updateScore(data) {
-    if (this.evaluateGuess(data) === true) {
-      this.player.score += this.value;
-      return this.player.score;
+  updateScore(value, card) {
+    console.log('value', value)
+    if (value === true) {
+
+      this.player.score += this.points;
+      // console.log('player', this.player)
+
+      // return this.player.score;
+
     } else {
-      return this.player.score;
+       console.log('player', this.player)
+       // this.player.score -= this.points;
+      // return this.player.score;
     }
 
   }
 
   checkIfCLueIsDailyDouble() {
     const clue = data.clues.filter(item => {
-      return item.pointValue === this.value &&
+      return item.pointValue === this.points &&
       item.categoryId === this.category
     })
     return clue;
@@ -64,7 +71,7 @@ class Turn {
       if (round.currentTurn === 2) {
         highestPointValue = 800
       } else if (round.currentTurn === 3) {
-        highestPointValue = this.player.value
+        highestPointValue = this.player.points
       }
       const wagerMin = 5;
       const wagerMax = highestPointValue;
