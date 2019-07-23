@@ -1,15 +1,13 @@
 import Turn from '../src/turn'
 
-
-
 class Round {
   constructor(players, game) {
     this.players = players;
     this.currentTurn;
     this.currentPlayer = 0;
     this.game = game;
+    
   }
-
 
   returnDailyDouble() {
     return Array.from({length: this.numberOfRounds}, () => Math.floor(Math.random() * 16))
@@ -21,7 +19,6 @@ class Round {
 
   beginRound() {
     this.currentTurn = new Turn(this.findPlayer(), this)
-
   }
 
   findPlayer() {
@@ -29,7 +26,7 @@ class Round {
   }
 
   changePlayer() {
-    if(this.currentPlayer < 3) {
+    if(this.currentPlayer < 2) {
       this.currentPlayer++
     } else {
       this.currentPlayer = 0;

@@ -2,7 +2,6 @@ import $ from 'jquery';
 import Clues from './Clues';
 import Data from '../src/data/data';
 import Player from "./Player";
-
 import Turn from '../src/turn'
 
 let domUpdates = {
@@ -50,10 +49,11 @@ let domUpdates = {
 
   },
 
-    giveFeedback(value, card) {
-    if (value === true) {
+    giveFeedback(answer, id) {
+    if (answer === true) {
       $("#js-show-answer").text('YOU GUESSED CORRECTLY!');
-      $(`#${card.id}`).text('')
+      $(`#${id}`).html('')
+      console.log(id)
       $('#js-guess-input').val('')
       } else {
       $("#js-show-answer").text('YOU GUESSED INCORRECTLY!');
