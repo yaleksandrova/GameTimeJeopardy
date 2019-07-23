@@ -17,7 +17,8 @@ class Game {
   }
 
   gameStart() {
-    this.round = new Round(this.players, this.roundNum, this);
+    this.round = new Round(this.players, this);
+    this.round.beginRound()
   }
 
 }
