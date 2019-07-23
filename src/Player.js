@@ -5,9 +5,14 @@ class Player {
     this.score = 0;
   }
   
+
+addScore(pointValue) {
+  this.score += pointValue
 }
 
-
-
+minusScore(pointValue) {
+  this.score -= pointValue
+}
+}
 
 export default Player;

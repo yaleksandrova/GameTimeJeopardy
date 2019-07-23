@@ -1,36 +1,14 @@
+import Turn from '../src/turn'
+
+
+
 class Round {
-  constructor(players, currentRound, game) {
+  constructor(players, game) {
     this.players = players;
-    this.currentTurn = 1;
-    this.currentRound = currentRound;
+    this.currentTurn;
+    this.currentPlayer = 0;
     this.game = game;
   }
-
-  //methods
-
-  //DONE
-  //1. Daily double method
-  // ---> depending on the round (this.numberOfRound)
-  // generates a random number
-  // array.from() creates array from an array like/iterable object
-  // length = current round
-  // --> creating an array of random numbers
-
-  //2. returnRoundWinner()
-  // ---> player name needed
-  // ---> calculate highest score (player.score)???
-  // check players array, should be able to evaluate whose score is highest ---> find()?? sort???
-  // math.max for the score??? 
-  // NEED TO FIGURE OUT HOW TO IMPLEMENT AN INCREMENTOR.
-  // ---> THAT INCREMENTOR NEEDS TO COME FROM THE TURN CLASS
-
-  // how can we check when the round is over??
-
-  // 3. increaseCurrentRound();
-  // if the questions exceed 16 questions, then the next round is activated.
-
-  // 
-
 
 
   returnDailyDouble() {
@@ -41,12 +19,26 @@ class Round {
     return players.sort((a, b) => b.score - a.score)[0].name;
   }
 
+  beginRound() {
+    this.currentTurn = new Turn(this.findPlayer(), this)
 
-  // increaseCurrentRound(clue) { //jquery convert
-  //  if(clue.length > 16) {
-  //   return this.currentRound++
-  // }
+  }
 
+  findPlayer() {
+    return this.players[this.currentPlayer]
+  }
+
+  changePlayer() {
+    if(this.currentPlayer < 3) {
+      this.currentPlayer++
+    } else {
+      this.currentPlayer = 0;
+    }
+  }
+
+  continueRound() {
+    this.currentTurn = new Turn(this.findPlayer(), this)
+  }
 
 }
 

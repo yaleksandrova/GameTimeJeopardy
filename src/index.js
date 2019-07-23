@@ -27,15 +27,6 @@ import $ from 'jquery';
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
 
-
-//event listener for clue button, for name submit button which will call DOM updates methods
-//e.target
-//check()
-
-// $('#js-row-0').click(function() {
-//   // domUpdates.displayCluesQuestions();
-// })
-
 $('#js-jeopardy-board').hide();
 
 $('#js-names-button').click(function(e) {
@@ -46,6 +37,7 @@ $('#js-names-button').click(function(e) {
   let player3 = new Player($('#js-input-player-3').val(), 3)
   game.players.push(player1, player2, player3)
   game.gameStart();
+  console.log('game', game)
   domUpdates.updatePlayerScore(player1, player2, player3)
   domUpdates.displayCluesIds(clues)
   domUpdates.displayCategories(clues)
@@ -64,7 +56,7 @@ $('#js-names-button').click(function(e) {
       //   console.log(item.id)
       // }
       for (var i = 0; i < allCards.length; i++) {
-        if (allCards[i].id && allCards[i].id != "") {
+        if (allCards[i].id) {
           let test = allCards[i]
           document.getElementById(allCards[i].id).addEventListener("click", function() {
             onCardClick(test)
@@ -74,35 +66,19 @@ $('#js-names-button').click(function(e) {
 
       function onCardClick(card) {
         let question = card.innerText
-        let clueObj = clues.cards.find(clue => {
+        let clue = clues.cards.find(clue => {
           return clue.question === question;
         })
+        console.log('clue object', clue)
 
-        console.log('clue object', clueObj)
-        //HERE WE WOULD HAVE OUR CARD FLIP AND SHOW THE Q
-
-        // domUpdates.displayInputFieldForGuess()
         $('#js-guess-button').click(function(e) {
           e.preventDefault();
+          let guess = $('#js-guess-input').val();
+          game.round.currentTurn.evaluateGuess(clue, guess)
 
-          // let categorySelected = $(card).children('p')[0]
-          // console.log(categorySelected)
-          // let valueSelected = $(card)[0].outerText;
-          let guessInputted = $('#js-guess-input').val();
-          let turn = new Turn(clueObj.answer, clueObj.pointValue, guessInputted, player1);
-          // console.log(turn)
-          let evaluateGuess = turn.evaluateGuess()
-          domUpdates.giveFeedback(evaluateGuess, card)
-          turn.updateScore(evaluateGuess)
-         
 
-          // domUpdates.displayRightOrWrongMessage(turn);
         })
       }
-  //   } else {
-  //     alert("You may exit the game");
-  //     return false;
-  //   }
-  // }, 500);
+
 
 })

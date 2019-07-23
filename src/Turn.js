@@ -1,11 +1,10 @@
 import Round from '../src/round'
 
 class Turn {
-  constructor (answer, points, guess, player) {
-    this.answer = answer;
-    this.points = points;
-    this.guess = guess;
-    this.player = player;
+  constructor (currentPlayer, round) {
+
+    this.currentPlayer = currentPlayer;
+    this.round = round;
 
     console.log(this);
   }
@@ -19,29 +18,17 @@ class Turn {
   //round class determines what comes to the dashboard
 
 
-
-  evaluateGuess() {
-    console.log('this', this)
-    return this.answer === this.guess;
-    // this.giveFeedback();
+evaluateGuess(clue, guess) {
+  if(clue.answer === guess) {
+    this.currentPlayer.addScore(clue.pointValue)
+    this.round.continueRound() 
+  } else {
+    this.currentPlayer.minusScore(clue.pointValue)
+    this.round.continueRound()
   }
+}
 
-  updateScore(value, card) {
-    console.log('value', value)
-    if (value === true) {
 
-      this.player.score += this.points;
-      // console.log('player', this.player)
-
-      // return this.player.score;
-
-    } else {
-       console.log('player', this.player)
-       // this.player.score -= this.points;
-      // return this.player.score;
-    }
-
-  }
 
   checkIfCLueIsDailyDouble() {
     const clue = data.clues.filter(item => {
