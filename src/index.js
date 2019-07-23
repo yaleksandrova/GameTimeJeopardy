@@ -45,8 +45,10 @@ $('#js-names-button').click(function(e) {
   // domUpdates.displayCurrentQuestion(e)
 
     $('.card').on('click', function(e) {
-      //can be added to the DOM updates
   
+      game.round.currentTurn.currentCard = $(e.target)[0].id;
+
+
       let question = $(e.target)[0].innerText;
       let clue = clues.cards.find(clue => {
         return clue.question === question;
@@ -58,7 +60,11 @@ $('#js-names-button').click(function(e) {
     e.preventDefault();
     let guess = $('#js-guess-input').val();
     let answer = game.round.currentTurn.evaluateGuess(guess)
-    domUpdates.giveFeedback(answer);
+    console.log('answer', answer)
+    console.log(game.round.currentTurn.currentCard);
+    
+    domUpdates.giveFeedback(answer, game.round.currentTurn.currentCard);
+    game.round.changePlayer();
   })
   
 })

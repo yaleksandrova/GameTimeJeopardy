@@ -6,8 +6,8 @@ class Turn {
     this.currentPlayer = currentPlayer;
     this.round = round;
     this.currentClue;
-
-    console.log(this);
+    this.currentCard;
+    console.log(this)
   }
   // select a categrory and a clue in one function
   //checking if the clue is daily double
@@ -23,13 +23,13 @@ evaluateGuess(guess) {
   if(this.currentClue.answer === guess) {
     this.currentPlayer.addScore(this.currentClue.pointValue)
     this.round.continueRound() 
+    return true;
   } else {
     this.currentPlayer.minusScore(this.currentClue.pointValue)
     this.round.continueRound()
+    return false;
   }
 }
-
-
 
   checkIfCLueIsDailyDouble() {
     const clue = data.clues.filter(item => {
@@ -37,33 +37,7 @@ evaluateGuess(guess) {
       item.categoryId === this.category
     })
     return clue;
-  }
-
-  // if(clue.includes(round.returnDailyDouble()){
-        
-  //   return true
-  // }else{
-  //   return false
-  // }
- 
-  
-  //calls on DOM checkDD(){
-  //domUpdates()
-  //wager()
-  //}
-  //add DD class
-  
-
-  inputWager() {
-      const highestPointValue = 400;
-      if (round.currentTurn === 2) {
-        highestPointValue = 800
-      } else if (round.currentTurn === 3) {
-        highestPointValue = this.player.points
-      }
-      const wagerMin = 5;
-      const wagerMax = highestPointValue;
-    } 
+  }  
   }
 
 export default Turn;
