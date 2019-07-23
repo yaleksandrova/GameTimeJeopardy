@@ -46,39 +46,24 @@ $('#js-names-button').click(function(e) {
   $('#js-jeopardy-board').show();
   domUpdates.displayCurrentQuestion(e)
 
-
-
-  // setTimeout(function() {
-  //   if (window.confirm("player 1 it's your turn! Are you ready?")) {
-      var allCards = document.getElementsByClassName('card');
-
-      // for(let item of allCards ) {
-      //   console.log(item.id)
-      // }
-      for (var i = 0; i < allCards.length; i++) {
-        if (allCards[i].id) {
-          let test = allCards[i]
-          document.getElementById(allCards[i].id).addEventListener("click", function() {
-            onCardClick(test)
-          });
-        }
-      }
-
-      function onCardClick(card) {
-        let question = card.innerText
-        let clue = clues.cards.find(clue => {
-          return clue.question === question;
-        })
-        console.log('clue object', clue)
-
-        $('#js-guess-button').click(function(e) {
-          e.preventDefault();
-          let guess = $('#js-guess-input').val();
-          game.round.currentTurn.evaluateGuess(clue, guess)
-
-
-        })
-      }
-
+  function initializeSingleTurn(player){
+    $('.card').on('click', function(e) {
+      //can be added to the DOM updates
+      $(e.target.closest('h3')).hide();
+      let question = $(e.target)[0].innerText;
+      let clue = clues.cards.find(clue => {
+        return clue.question === question;
+      })
+      console.log('clue object', clue)
+      $('#js-guess-button').click(function(e) {
+        e.preventDefault();
+        let guess = $('#js-guess-input').val();
+        let answer = game.round.currentTurn.evaluateGuess(clue, guess)
+        domUpdates.giveFeedback(answer);
+      })
+    })
+  }
+    initializeSingleTurn(player1);
+  
 
 })
