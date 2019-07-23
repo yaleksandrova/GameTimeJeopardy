@@ -16,20 +16,6 @@ let domUpdates = {
   },
 
 
-
-  //user interaction
-  //method that checksDD() {
-  //if click is DD
-  //}
-  //event listener goes in index.js
-
-  //show current round in top of the screen
-
-
-  //display the categories
-
-
-
   displayCluesIds(clues) {
     let findClues = clues.cards;
     findClues.forEach((clue, index) => {
@@ -88,14 +74,6 @@ let domUpdates = {
     $('#js-player-two-points').text(player2.score)
     $('#js-player-three-points').text(player3.score)
   },
-
-  displayCurrentQuestion(e) {
-    $('.card').on('click', function(e) {
-      $(e.target.closest('h3')).hide();
-    })
-  },
-
-
 
 
 }

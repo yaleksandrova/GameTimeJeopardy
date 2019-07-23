@@ -5,6 +5,7 @@ class Turn {
 
     this.currentPlayer = currentPlayer;
     this.round = round;
+    this.currentClue;
 
     console.log(this);
   }
@@ -18,12 +19,12 @@ class Turn {
   //round class determines what comes to the dashboard
 
 
-evaluateGuess(clue, guess) {
-  if(clue.answer === guess) {
-    this.currentPlayer.addScore(clue.pointValue)
+evaluateGuess(guess) {
+  if(this.currentClue.answer === guess) {
+    this.currentPlayer.addScore(this.currentClue.pointValue)
     this.round.continueRound() 
   } else {
-    this.currentPlayer.minusScore(clue.pointValue)
+    this.currentPlayer.minusScore(this.currentClue.pointValue)
     this.round.continueRound()
   }
 }
