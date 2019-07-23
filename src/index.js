@@ -28,7 +28,6 @@ import $ from 'jquery';
 import './css/base.scss';
 
 $('#js-jeopardy-board').hide();
-
 $('#js-names-button').click(function(e) {
   e.preventDefault();
   game.startRound();
@@ -37,33 +36,29 @@ $('#js-names-button').click(function(e) {
   let player3 = new Player($('#js-input-player-3').val(), 3)
   game.players.push(player1, player2, player3)
   game.gameStart();
-  console.log('game', game)
   domUpdates.updatePlayerScore(player1, player2, player3)
   domUpdates.displayCluesIds(clues)
   domUpdates.displayCategories(clues)
   domUpdates.updatePlayerNames()
   $('#js-input-names').hide();
   $('#js-jeopardy-board').show();
-  domUpdates.displayCurrentQuestion(e)
+  // domUpdates.displayCurrentQuestion(e)
 
-  function initializeSingleTurn(player){
     $('.card').on('click', function(e) {
       //can be added to the DOM updates
-      $(e.target.closest('h3')).hide();
+  
       let question = $(e.target)[0].innerText;
       let clue = clues.cards.find(clue => {
         return clue.question === question;
       })
+      game.round.currentTurn.currentClue = clue;
       console.log('clue object', clue)
-      $('#js-guess-button').click(function(e) {
-        e.preventDefault();
-        let guess = $('#js-guess-input').val();
-        let answer = game.round.currentTurn.evaluateGuess(clue, guess)
-        domUpdates.giveFeedback(answer);
-      })
     })
-  }
-    initializeSingleTurn(player1);
+  $('#js-guess-button').click(function(e) {
+    e.preventDefault();
+    let guess = $('#js-guess-input').val();
+    let answer = game.round.currentTurn.evaluateGuess(guess)
+    domUpdates.giveFeedback(answer);
+  })
   
-
 })

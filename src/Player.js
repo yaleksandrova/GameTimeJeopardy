@@ -4,7 +4,6 @@ class Player {
     this.id = id;
     this.score = 0;
   }
-  
 
 addScore(pointValue) {
   this.score += pointValue
