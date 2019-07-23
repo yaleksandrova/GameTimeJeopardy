@@ -50,19 +50,19 @@ $('#js-names-button').click(function(e) {
 
   // setTimeout(function() {
   //   if (window.confirm("player 1 it's your turn! Are you ready?")) {
-      // var allCards = document.getElementsByClassName('card');
+      var allCards = document.getElementsByClassName('card');
 
       // for(let item of allCards ) {
       //   console.log(item.id)
       // }
-      // for (var i = 0; i < allCards.length; i++) {
-      //   if (allCards[i].id && allCards[i].id != "") {
-      //     let test = allCards[i]
-      //     document.getElementById(allCards[i].id).addEventListener("click", function() {
-      //       onCardClick(test)
-      //     });
-      //   }
-      // }
+      for (var i = 0; i < allCards.length; i++) {
+        if (allCards[i].id) {
+          let test = allCards[i]
+          document.getElementById(allCards[i].id).addEventListener("click", function() {
+            onCardClick(test)
+          });
+        }
+      }
 
       function onCardClick(card) {
         let question = card.innerText
