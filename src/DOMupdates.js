@@ -6,14 +6,12 @@ import Turn from '../src/turn'
 
 let domUpdates = {
 
-
   displayPlayersName(data) {
     const players = data.players.map(person => {
       return person.name;
     })
     return players;
   },
-
 
   displayCluesIds(clues) {
     let findClues = clues.cards;
@@ -24,14 +22,6 @@ let domUpdates = {
       })
     })
   },
-
-  // displayCluesQuestions(clues) {
-  //   let findClues = clues.findMatchingQuestions();
-  //   clues.forEach((clue, index) => {
-  //     console.log('displayQ', clue.categoryId)
-  //     $(`#js-row-${index}`).html(clue.question);
-  //   })
-  // },
 
   displayCategories(clues) {
     let findCat = clues.categories;
@@ -53,11 +43,11 @@ let domUpdates = {
     if (answer === true) {
       $("#js-show-answer").text('YOU GUESSED CORRECTLY!');
       $(`#${id}`).html('')
-      console.log(id)
       $('#js-guess-input').val('')
       } else {
       $("#js-show-answer").text('YOU GUESSED INCORRECTLY!');
       $('#js-guess-input').val('')
+      $(`#${id}`).html('')
 
       
     }
@@ -69,12 +59,11 @@ let domUpdates = {
     $('#js-player-three-name').text($('#js-input-player-3').val())
   },
 
-  updatePlayerScore(player1, player2, player3) {
-    $('#js-player-one-points').text(player1.score)
-    $('#js-player-two-points').text(player2.score)
-    $('#js-player-three-points').text(player3.score)
+  checkRoundEnd(cardNum) {
+    if (cardNum === 0) {
+      $('#js-show-answer').html('ROUND OVER!');
+    }
   },
-
 
 }
 

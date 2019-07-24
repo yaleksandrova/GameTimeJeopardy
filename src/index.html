@@ -7,6 +7,7 @@
     <div class="header-container">
       <h1 class="heading">Jeopardy</h1>
       <p class="show-answer" id="js-show-answer"></p>
+      <p class ="show-current-player-name" id="js-show-current-player-name"></p>
     </div>
     <main class="main-container">
       <form class="input-names" id="js-input-names">
@@ -60,7 +61,7 @@
       </table>
     </main>
     <section class="player-info">
-      <h2 class="players-heading">Players</h2>
+      <h2 class="players-heading"><span id="js-players-heading">Player</span>'s Turn</h2>
       <p class="player-name" id="js-player-one-name">Player One's Name</p>
       <p class="player-points">$<span id="js-player-one-points"></span></p>
       <p class="player-name" id="js-player-two-name">Player Two's Name</p>
@@ -72,7 +73,5 @@
         <button class="guess-button" id="js-guess-button">Submit Guess</button>
       </div>
     </section>
-
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>
