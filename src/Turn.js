@@ -27,13 +27,13 @@ evaluateGuess(guess) {
   }
 }
 
-  checkIfCLueIsDailyDouble() {
-    const clue = data.clues.filter(item => {
-      return item.pointValue === this.points &&
-      item.categoryId === this.category
-    })
-    return clue;
+checkIfCLueIsDailyDouble() {
+  const clue = data.clues.filter(item => {
+    return item.pointValue === this.points &&
+    item.categoryId === this.category
+  })
+  return clue;
   }  
-  }
+}
 
 export default Turn;
