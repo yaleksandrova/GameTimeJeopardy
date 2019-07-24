@@ -6,14 +6,12 @@ import Turn from '../src/turn'
 
 let domUpdates = {
 
-
   displayPlayersName(data) {
     const players = data.players.map(person => {
       return person.name;
     })
     return players;
   },
-
 
   displayCluesIds(clues) {
     let findClues = clues.cards;
@@ -24,14 +22,6 @@ let domUpdates = {
       })
     })
   },
-
-  // displayCluesQuestions(clues) {
-  //   let findClues = clues.findMatchingQuestions();
-  //   clues.forEach((clue, index) => {
-  //     console.log('displayQ', clue.categoryId)
-  //     $(`#js-row-${index}`).html(clue.question);
-  //   })
-  // },
 
   displayCategories(clues) {
     let findCat = clues.categories;
