@@ -61,6 +61,8 @@ let domUpdates = {
 
   checkRoundEnd(cardNum) {
     if (cardNum === 0) {
+      $('#js-jeopardy-board').hide();
+      $('.player-info').hide();
       $('#js-show-answer').html('ROUND OVER!');
     }
   },
