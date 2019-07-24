@@ -18,10 +18,11 @@ class Round {
   }
 
   beginRound() {
-    this.currentTurn = new Turn(this.findPlayer(), this)
+    this.currentTurn = new Turn(this.players[0], this)
   }
 
   findPlayer() {
+      this.currentPlayer++
     return this.players[this.currentPlayer]
   }
 
@@ -34,7 +35,7 @@ class Round {
   }
 
   continueRound() {
-    this.currentTurn = new Turn(this.findPlayer(), this)
+    this.currentTurn = new Turn(this.players[this.currentPlayer], this)
   }
 
 }

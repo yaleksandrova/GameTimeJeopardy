@@ -36,12 +36,14 @@ $('#js-names-button').click(function(e) {
   let player3 = new Player($('#js-input-player-3').val(), 3)
   game.players.push(player1, player2, player3)
   game.gameStart();
-  domUpdates.updatePlayerScore(player1, player2, player3)
+  // domUpdates.updatePlayerScore(player1, player2, player3)
   domUpdates.displayCluesIds(clues)
   domUpdates.displayCategories(clues)
   domUpdates.updatePlayerNames()
   $('#js-input-names').hide();
   $('#js-jeopardy-board').show();
+  $('.players-heading').text(game.round.currentTurn.currentPlayer.name)
+  // $('.player-points').text(game.round.currentTurn.currentPlayer.score)
   // domUpdates.displayCurrentQuestion(e)
 
     $('.card').on('click', function(e) {
@@ -57,14 +59,19 @@ $('#js-names-button').click(function(e) {
       console.log('clue object', clue)
     })
   $('#js-guess-button').click(function(e) {
+    // game.round.changePlayer();
     e.preventDefault();
     let guess = $('#js-guess-input').val();
     let answer = game.round.currentTurn.evaluateGuess(guess)
+      $('#js-player-one-points').text(game.players[0].score)
+     $('#js-player-two-points').text(game.players[1].score)
+      $('#js-player-three-points').text(game.players[2].score)
+
     console.log('answer', answer)
-    console.log(game.round.currentTurn.currentCard);
+    console.log('dis', game.round.currentTurn.currentCard);
     
-    domUpdates.giveFeedback(answer, game.round.currentTurn.currentCard);
-    game.round.changePlayer();
+    
+    $('.players-heading').text(game.round.currentTurn.currentPlayer.name)
   })
   
 })

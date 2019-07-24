@@ -1,4 +1,6 @@
 import Round from '../src/round'
+import domUpdates from '../src/domUpdates'
+
 
 class Turn {
   constructor (currentPlayer, round) {
@@ -22,12 +24,14 @@ class Turn {
 evaluateGuess(guess) {
   if(this.currentClue.answer === guess) {
     this.currentPlayer.addScore(this.currentClue.pointValue)
+    // this.round.changePlayer()
     this.round.continueRound() 
-    return true;
+    domUpdates.giveFeedback(true, this.currentCard)
   } else {
     this.currentPlayer.minusScore(this.currentClue.pointValue)
+    this.round.changePlayer()
     this.round.continueRound()
-    return false;
+    domUpdates.giveFeedback(false, this.currentCard)
   }
 }
 
