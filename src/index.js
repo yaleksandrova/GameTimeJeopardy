@@ -14,11 +14,8 @@ import Player from '../src/Player'
 import Game from '../src/game';
 import Round from '../src/round'
 import Turn from '../src/turn'
-
 import domUpdates from './domUpdates'
-
 import $ from 'jquery';
-
 import './css/base.scss';
 
 $('#js-jeopardy-board').hide();
@@ -47,7 +44,6 @@ $('.card').on('click', function(e) {
   let clue = clues.cards.find(clue => {
   return clue.question === question;
   })
-
   game.round.currentTurn.currentClue = clue;
 })
 

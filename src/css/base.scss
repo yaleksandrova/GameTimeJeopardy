@@ -1,15 +1,15 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
- $primary-background: black;
+$primary-background: black;
 $font-color: rgba(21,171,195,1.0);
 $primary-font: 'Orbitron', sans-serif;
 $text-shadow-effect: 0 0 5px rgba(21,171,195,0.7);
 
 body {
   background-color: $primary-background;
-  cursor: crosshair;
-  font-family: $primary-font;
   color: $font-color;
+  cursor: crosshair;
   display: grid;
+  font-family: $primary-font;
   font-size: 1em;
   grid-template-areas:
     "head head"
@@ -24,15 +24,15 @@ main {
 }
 
 form {
-  display: flex;
   align-items: center;
+  display: flex;
   margin-left: 6em;
 }
 
 label {
-  margin-right: 25px;
-  font-size: 22px;
   font-color: $font-color;
+  font-size: 22px;
+  margin-right: 25px;
   text-shadow: $text-shadow-effect;
 }
 
@@ -49,16 +49,16 @@ p {
 }
 
 .header-container {
-  grid-area: head;
-  display: flex;
   align-items: baseline;
+  display: flex;
+  grid-area: head;
   justify-content: center;
 }
 
 .heading {
+  color: rgba(21,171,195,1.0);
   font-size: 5em;
   font-weight: 400;
-  color: rgba(21,171,195,1.0);
   text-shadow: $text-shadow-effect;
 }
 
@@ -67,41 +67,39 @@ p {
 }
 
 .player-info {
-  grid-area: section;
   display: flex;
-  justify-content: space-around;
   flex-direction: column;
+  grid-area: section;
+  justify-content: space-around;
 }
 
 .input-player, textarea {  
-caret-color: $font-color;
-
+  caret-color: $font-color;
 }
 
 .input-player[type='text'] { 
-font-family: $primary-font; 
+  font-family: $primary-font; 
 }
 
 .names-button {
-  width: 102px;
+  background: $primary-background;
+  border-radius: 3px;
+  color: $font-color;
   font-family: $primary-font;
+  font-size: 18px;
   height: 31px;
   margin-top: 25px;
-  border-radius: 3px;
-  font-size: 18px;
-  background: $primary-background;
-  color: $font-color;
-
+  width: 102px;
 }
 
 .players-heading {
-  font-size: 2em;
   color: #e859fe; 
+  font-size: 2em;
 }
 
 .player-points {
-  font-size: 1.5em;
   color: #59fe95;
+  font-size: 1.5em;
   margin-right: 10px;
 }
 
@@ -112,14 +110,14 @@ font-family: $primary-font;
 }
 
 .input-guess {
-  grid-area: foot;
-  font-family: $primary-font;
-  width: 13em;
-  height: 30px;
   border-radius: 3px;
+  font-family: $primary-font;
   font-size: 18px;
-  margin-left: 13px;
+  grid-area: foot;
+  height: 30px;
   margin-bottom: 10px;
+  margin-left: 13px;
+  width: 13em;
 }
 
 #js-guess-input[type='text'] {
@@ -132,14 +130,14 @@ font-family: $primary-font;
 }
 
 .guess-button {
-  font-family: $primary-font;
   background: $primary-background;
   color: $font-color;
-  width: 20em;
-  height: 25px;
-  margin-top: 10px;
-  margin-left: 22px;
+  font-family: $primary-font;
   font-size: 18px;
+  height: 25px;
+  margin-left: 22px;
+  margin-top: 10px;
+  width: 20em;
   width: 220px;
 }
 

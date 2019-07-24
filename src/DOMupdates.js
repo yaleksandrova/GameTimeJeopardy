@@ -30,16 +30,14 @@ let domUpdates = {
     })
   },
 
-
   displayInputFieldForGuess() {
     $(".input-field").html(`<input type="text" class="input-guess" id="js-input-guess-1" />
     <button class="guess-button" id="js-guess-button">
         Submit Guess
       </button>`);
-
   },
 
-    giveFeedback(answer, id) {
+  giveFeedback(answer, id) {
     if (answer === true) {
       $("#js-show-answer").text('YOU GUESSED CORRECTLY!');
       $(`#${id}`).html('')
@@ -47,9 +45,7 @@ let domUpdates = {
       } else {
       $("#js-show-answer").text('YOU GUESSED INCORRECTLY!');
       $('#js-guess-input').val('')
-      $(`#${id}`).html('')
-
-      
+      $(`#${id}`).html('')  
     }
   },
 
@@ -66,7 +62,6 @@ let domUpdates = {
       $('#js-show-answer').html('ROUND OVER!');
     }
   },
-
 }
 
 
