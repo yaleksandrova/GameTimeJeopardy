@@ -40,13 +40,12 @@ let domUpdates = {
   giveFeedback(answer, id) {
     if (answer === true) {
       $("#js-show-answer").text('YOU GUESSED CORRECTLY!');
-      $(`#${id}`).html('')
-      $('#js-guess-input').val('')
-      } else {
+    } else {
       $("#js-show-answer").text('YOU GUESSED INCORRECTLY!');
-      $('#js-guess-input').val('')
-      $(`#${id}`).html('')  
     }
+    $(`#${id}`).html('');
+    $('#js-guess-input').val('');
+    $(`#${id}`).off();
   },
 
   updatePlayerNames() {
