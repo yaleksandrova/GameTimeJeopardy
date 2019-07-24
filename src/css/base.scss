@@ -1,9 +1,13 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: #01103b;
-$font-color: #fff;
+ $primary-background: black;
+$font-color: rgba(21,171,195,1.0);
+$primary-font: 'Orbitron', sans-serif;
+$text-shadow-effect: 0 0 5px rgba(21,171,195,0.7);
 
 body {
   background-color: $primary-background;
+  cursor: crosshair;
+  font-family: $primary-font;
   color: $font-color;
   display: grid;
   font-size: 1em;
@@ -15,9 +19,29 @@ body {
   height: 100vh;
 }
 
+main {
+  display: flex;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  margin-left: 6em;
+}
+
+label {
+  margin-right: 25px;
+  font-size: 22px;
+  font-color: $font-color;
+  text-shadow: $text-shadow-effect;
+}
+
 input {
   border: none;
   border-radius: 3px;
+  font-size: 25px;
+  padding-left: 8px;
+  margin-top: 4px;
 }
 
 p {
@@ -26,10 +50,16 @@ p {
 
 .header-container {
   grid-area: head;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
 }
 
 .heading {
-  font-size: 2em;
+  font-size: 5em;
+  font-weight: 400;
+  color: rgba(21,171,195,1.0);
+  text-shadow: $text-shadow-effect;
 }
 
 .main-container {
@@ -38,10 +68,79 @@ p {
 
 .player-info {
   grid-area: section;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.input-player, textarea {  
+caret-color: $font-color;
+
+}
+
+.input-player[type='text'] { 
+font-family: $primary-font; 
+}
+
+.names-button {
+  width: 102px;
+  font-family: $primary-font;
+  height: 31px;
+  margin-top: 25px;
+  border-radius: 3px;
+  font-size: 18px;
+  background: $primary-background;
+  color: $font-color;
+
+}
+
+.players-heading {
+  font-size: 2em;
+  color: #e859fe; 
+}
+
+.player-points {
+  font-size: 1.5em;
+  color: #59fe95;
+  margin-right: 10px;
+}
+
+#js-player-one-points,
+#js-player-two-points,
+#js-player-three-points {
+  margin-left: 10px;
 }
 
 .input-guess {
   grid-area: foot;
+  font-family: $primary-font;
+  width: 13em;
+  height: 30px;
+  border-radius: 3px;
+  font-size: 18px;
+  margin-left: 13px;
+  margin-bottom: 10px;
+}
+
+#js-guess-input[type='text'] {
+  font-family: $primary-font;
+  width: 255px;
+}
+
+#js-show-answer {
+  font-size: 1.5em;
+}
+
+.guess-button {
+  font-family: $primary-font;
+  background: $primary-background;
+  color: $font-color;
+  width: 20em;
+  height: 25px;
+  margin-top: 10px;
+  margin-left: 22px;
+  font-size: 18px;
+  width: 220px;
 }
 
 .jeopardy-board {
@@ -51,11 +150,22 @@ p {
   width: 100%;
 }
 
+.card {
+  font-size: 35px;
+}
+
+th {
+  color: #5970fe; 
+  font-size: 18px;
+}
+
 th,
 td {
-  border: 1px solid #fff;
+  border: 1px solid rgba(21,171,195,1.0);
   border-radius: 6px;
   max-height: 30px;
   margin: 5px;
   max-width: 30px;
+  letter-spacing: 2px;
+  text-shadow: $text-shadow-effect;
 }

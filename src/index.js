@@ -22,6 +22,7 @@ import $ from 'jquery';
 import './css/base.scss';
 
 $('#js-jeopardy-board').hide();
+$('.player-info').hide();
 
 $('#js-names-button').click(function(e) {
   e.preventDefault();
@@ -35,7 +36,9 @@ $('#js-names-button').click(function(e) {
   domUpdates.displayCategories(clues)
   domUpdates.updatePlayerNames()
   $('#js-input-names').hide();
+  $('.heading').hide();
   $('#js-jeopardy-board').show();
+  $('.player-info').show();
   $('#js-players-heading').text(game.round.currentTurn.currentPlayer.name)
 
 $('.card').on('click', function(e) {
