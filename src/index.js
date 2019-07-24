@@ -36,7 +36,7 @@ $('#js-names-button').click(function(e) {
   domUpdates.updatePlayerNames()
   $('#js-input-names').hide();
   $('#js-jeopardy-board').show();
-  $('.players-heading').text(game.round.currentTurn.currentPlayer.name)
+  $('#js-players-heading').text(game.round.currentTurn.currentPlayer.name)
 
 $('.card').on('click', function(e) {
   game.round.currentTurn.currentCard = $(e.target)[0].id;
@@ -55,7 +55,7 @@ $('#js-guess-button').click(function(e) {
   $('#js-player-one-points').text(game.players[0].score)
   $('#js-player-two-points').text(game.players[1].score)
   $('#js-player-three-points').text(game.players[2].score)
-  $('.players-heading').text(game.round.currentTurn.currentPlayer.name)
+  $('#js-players-heading').text(game.round.currentTurn.currentPlayer.name)
 })
   
 })
