@@ -69,12 +69,11 @@ let domUpdates = {
     $('#js-player-three-name').text($('#js-input-player-3').val())
   },
 
-  // updatePlayerScore(player1, player2, player3) {
-  //   $('#js-player-one-points').text(game.players[0].score)
-  //   $('#js-player-two-points').text(game.players[1].score)
-  //   $('#js-player-three-points').text(game.players[2].score)
-  // },
-
+  checkRoundEnd(cardNum) {
+    if (cardNum === 0) {
+      $('#js-show-answer').html('ROUND OVER!');
+    }
+  },
 
 }
 

@@ -6,7 +6,7 @@ class Round {
     this.currentTurn;
     this.currentPlayer = 0;
     this.game = game;
-    
+    this.roundCards = 16;
   }
 
   returnDailyDouble() {
@@ -22,7 +22,7 @@ class Round {
   }
 
   findPlayer() {
-      this.currentPlayer++
+    this.currentPlayer++
     return this.players[this.currentPlayer]
   }
 

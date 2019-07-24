@@ -6,7 +6,6 @@ class Game {
     this.clues = clues;
     this.players = [];
     this.roundNum = 1;
-    this.roundCards = 16;
     this.round;
   }
 
